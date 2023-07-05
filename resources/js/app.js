@@ -13,3 +13,10 @@ import {
   } from "tw-elements";
 
   initTE({ Collapse, Dropdown });
+
+  import {
+    Carousel,
+    initTE,
+  } from "tw-elements";
+
+  initTE({ Carousel });
