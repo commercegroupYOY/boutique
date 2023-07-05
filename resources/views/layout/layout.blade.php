@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
-    @vite(['resources/js/script.js'])
+
     <script
   type="text/javascript"
   src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
     <title>RetroRogilo</title>
 </head>
 <body>
+
     @include('layout.header')
 
 
 
 
-    @include('layout.footer')
 
 </body>
 </html>

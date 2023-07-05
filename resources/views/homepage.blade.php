@@ -1,6 +1,2 @@
-@include('layout.header')
-
-
-
-
+@include('layout.layout')
 @include('layout.footer')
