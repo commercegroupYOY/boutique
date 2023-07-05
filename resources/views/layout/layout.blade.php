@@ -26,7 +26,7 @@
     @yield('allProducts')
     @yield('toolbar')
 
-    @include('layout.footer')
+
 
 
 
