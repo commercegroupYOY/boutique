@@ -7,15 +7,22 @@
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
 
-    <script
-  type="text/javascript"
-  src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 
-    <title>RetroRogilo</title>
+    <title> @yield('title')</title>
+
 </head>
 <body>
 
     @include('layout.header')
+
+    @yield('HomeImage')
+
+    @yield('Homecontent')
+    
+    @yield('cardEquipe')
+
+    
+    @include('layout.footer')
 
 
 
