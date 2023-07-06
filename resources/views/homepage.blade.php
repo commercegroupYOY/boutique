@@ -5,6 +5,9 @@ vous aimez de retro gaming ?<br>
 découvrez une large sélection de console et de jeux vidéos !<br>
 pensez aussi à regarder nos vidéos sur YouTube et à nous suivre sur les réseaux sociaux !<br>
 </div>
+
 @include('layout.carouselconsole')
+
+@include('layout.catalog_choice')
 
 @include('layout.footer')
