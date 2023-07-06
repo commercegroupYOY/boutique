@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Team;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +24,28 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+
 Route::get('/Contact', [ContactController::class, 'Contact']);
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
+
+Route::get('/Détails produit', [ProductController::class, 'ProductSheet']);
+
+Route::get('/Panier', [CartController::class, 'index']);
+
+Route::get('/Team', [Team::class, 'index']);
+
+
+
+
+
+
+
+
+
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

@@ -6,20 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
-    @vite(['resources/js/script.js'])
     <script
   type="text/javascript"
   src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
     <title>@yield('title')</title>
+
+  <script src="../path/to/flowbite/dist/flowbite.js"></script>
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset ('img/logo.png')}}">
+    <title>RetroRogilo</title>
+
 </head>
 <body>
     @include('layout.header')
 @yield('content')
 
+    @yield('HomeImage')
 
+    @yield('content')
+    
+    @yield('Homecontent')
 
+    @yield('cardEquipe')
 
     @include('layout.footer')
+
+
+
+
 
 </body>
 </html>
