@@ -21,7 +21,10 @@
     
     @yield('cardEquipe')
 
-    
+    @yield('productDetail')
+    @yield('allProducts')
+    @yield('toolbar')
+
     @include('layout.footer')
 
 
