@@ -3,13 +3,13 @@
 @section('title')
 Notre équipe @endsection
 
-@section('Homecontent')
+@section('content')
 
 <div class="py-6"></div>
 <h1 class="text-4xl text-center ps-20  hover:uppercase" > Une équipe de choc </h1>
 </div>
 
-<div class=" flex justify-center items-center"> 
+<div class=" flex justify-center items-center">
 
 <p class=" m-9 text-l max-w-prose  text-center">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt elit vitae semper fermentum. Etiam euismod dui eget dignissim aliquet. Cras rutrum tortor ut urna sollicitudin vulputate. Etiam eleifend nulla ut arcu dignissim, vel placerat metus pharetra. Phasellus accumsan quis quam eget commodo. Mauris sed finibus mauris. In eu diam sapien. Donec tellus urna, vestibulum at vehicula quis, ullamcorper ullamcorper tortor. Praesent iaculis elementum egestas. Vestibulum id nulla augue. Donec lacinia vehicula sapien mattis pulvinar.
@@ -45,7 +45,7 @@ Aliquam ut augue egestas, lobortis lorem ac, pharetra mi. Aliquam erat volutpat.
         Some quick example text to build on the card title and make up the
         bulk of the card's content.
       </p>
-    
+
     </div>
   </div>
 
@@ -67,11 +67,11 @@ Aliquam ut augue egestas, lobortis lorem ac, pharetra mi. Aliquam erat volutpat.
         Some quick example text to build on the card title and make up the
         bulk of the card's content.
       </p>
-    
+
     </div>
   </div>
 
- 
+
 
     <div
     class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 flex-auto">
@@ -90,7 +90,7 @@ Aliquam ut augue egestas, lobortis lorem ac, pharetra mi. Aliquam erat volutpat.
         Some quick example text to build on the card title and make up the
         bulk of the card's content.
       </p>
-    
+
     </div>
   </div>
 

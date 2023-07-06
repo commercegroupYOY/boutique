@@ -1,4 +1,3 @@
-@section('catalogchoice')
 <div class="mx-auto p-20">
     <img src="{{asset ('img/console.png')}}" class="mx-auto" alt="en-tête">
 </div>
@@ -15,4 +14,3 @@
     JEUX
   </button>
 </div>
-@endsection

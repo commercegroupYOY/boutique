@@ -15,15 +15,10 @@
 <body>
 
     @include('layout.header')
-
-    @yield('HomeImage')
-
-    @yield('Homecontent')
-
-    @yield('cardEquipe')
-
-
-
+<main>
+    @yield('content')
+</main>
+    @include('layout.footer')
 
 
 
