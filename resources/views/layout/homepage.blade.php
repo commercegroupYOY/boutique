@@ -12,7 +12,7 @@
 @endsection
 
 @section('title')
-RétroRigoloch @endsection
+RétroRigolo @endsection
 
 
 
