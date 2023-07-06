@@ -13,13 +13,13 @@ class ProductController extends Controller
 
     public function ProductSheet(): View
     {
-        return View('/layout.ProductDetail');
+        return View('/ProductDetail');
 
     }
 
     public function catalogue(): View
     {
-        return View('/layout.product-list');
+        return View('/product-list');
     }
 
     public function showIds($id): View 

@@ -20,7 +20,7 @@
     @yield('Homecontent')
     
     @yield('cardEquipe')
-
+    @yield('checkout')
     @yield('productDetail')
     @yield('allProducts')
     @yield('toolbar')

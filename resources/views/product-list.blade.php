@@ -13,10 +13,10 @@ Liste des produits @endsection
 
 @section('allProducts')
 
-<div class=" pt-20 pl-20 grid grid-cols-1  gap-4  md:grid-cols-4 lg:grid-cols-4 ">
+<div class=" grid grid-cols-1  gap-4  md:grid-cols-2 lg:grid-cols-4 ">
 
     @for ($i = 0; $i < 20; $i++)
-    @include('layout.cardProduct')
+    @include('_product._cardProduct')
 
 @endfor
 
