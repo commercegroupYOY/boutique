@@ -18,10 +18,11 @@
 
     @yield('HomeImage')
 
+    @yield('content')
+    
     @yield('Homecontent')
 
     @yield('cardEquipe')
-
 
     @include('layout.footer')
 
