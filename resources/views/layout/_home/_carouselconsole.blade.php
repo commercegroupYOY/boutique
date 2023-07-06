@@ -1,6 +1,6 @@
 
-<div carousel console>
-<div class="relative w-[1200px] h-[720px]  mx-auto">
+<div id="carousel">
+<div class="relative  mx-auto p-20">
     <div class="slide relative" >
         <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/megadrive2.jpg')}}">
