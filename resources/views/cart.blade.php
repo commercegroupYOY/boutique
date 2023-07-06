@@ -3,15 +3,12 @@
 @section('title')
 Panier @endsection
 
-@section('Homecontent')
-<div class="py-8"></div>
-<h1 class="text-2xl text-center ps-10" > Panier </h1>
-</div>
- @endsection
 
 
-@section('checkout')
-
+@section('content')
+<div class="py-8">
+    <h1 class="text-2xl text-center ps-10" > Panier </h1>
+    </div>
  <div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
     <a href="#" class="text-2xl font-bold text-gray-800">Panier</a>
     <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
@@ -64,7 +61,7 @@ Panier @endsection
           </div>
         </div>
       </div>
-  
+
       <p class="mt-8 text-lg font-medium">Shipping Methods</p>
       <form class="mt-5 grid gap-6">
         <div class="relative">
@@ -140,7 +137,7 @@ Panier @endsection
           </select>
           <input type="text" name="billing-zip" class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" />
         </div>
-  
+
         <!-- Total -->
         <div class="mt-6 border-t border-b py-2">
           <div class="flex items-center justify-between">

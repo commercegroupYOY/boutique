@@ -1,4 +1,3 @@
-
 <header>
   <!-- Main navigation container -->
   <nav
@@ -90,6 +89,4 @@
         </div>
       </div>
   </nav>
-
-
 </header>

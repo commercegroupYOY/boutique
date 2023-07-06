@@ -15,6 +15,7 @@ class HomeController extends Controller
      */
     public function index(): View
     {
+
         $imgCarousel = [
             [
                 'name'=>'Sega Megadrive 2',
@@ -27,6 +28,7 @@ class HomeController extends Controller
         ];
 
         return View('/layout.homepage', ['imgs'=>$imgCarousel]);
+
     }
 
     /**

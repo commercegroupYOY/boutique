@@ -1,9 +1,9 @@
 <footer class="bg-white-900 text-center text-black w-full mt-10">
   <div class="container px-6 pt-6 mb-6 flex justify-center mx-auto ">
 
-        <button class="bg-transparent hover:bg-blue-600 text-black font-semibold hover:text-black py-2 px-4 border border-dark hover:border-transparent rounded">
+        <a href="/Contact" class="bg-transparent hover:bg-blue-600 text-black font-semibold hover:text-black py-2 px-4 border border-dark hover:border-transparent rounded">
             contact
-          </button>
+        </a>
         <a
           href="#!"
           type="button"
