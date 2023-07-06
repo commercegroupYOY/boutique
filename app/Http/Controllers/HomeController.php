@@ -15,7 +15,20 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        return View('/homepage');
+
+        $imgCarousel = [
+            [
+                'name'=>'Sega Megadrive 2',
+                'img'=>'public/img//megadrive2.jpg'
+            ],
+            [
+                'name'=>'Sega Megadrive 2',
+                'img'=>'public/img//megadrive2.jpg'
+            ]
+        ];
+
+        return View('/layout.homepage', ['imgs'=>$imgCarousel]);
+
     }
 
     /**
