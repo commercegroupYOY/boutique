@@ -15,9 +15,14 @@
 </head>
 <body>
     @include('layout.header')
-<main>
-    @yield('content')
-</main>
+
+    @yield('HomeImage')
+
+    @yield('Homecontent')
+
+    @yield('cardEquipe')
+
+
     @include('layout.footer')
 
 

@@ -27,13 +27,15 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
 
-
-Route::get('/Détails produit', [ProductController::class, 'showId']);
-
+Route::get('/Détails produit', [ProductController::class, 'ProductSheet']);
 
 Route::get('/Panier', [CartController::class, 'index']);
 
 Route::get('/Team', [Team::class, 'index']);
+
+
+
+
 
 
 

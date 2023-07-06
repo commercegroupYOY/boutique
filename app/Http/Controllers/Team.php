@@ -15,7 +15,7 @@ class Team extends Controller
      */
     public function index(): View
     {
-        return View('/layout.team');
+        return View('/team');
     }
 
     /**
