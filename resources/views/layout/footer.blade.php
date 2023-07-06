@@ -1,24 +1,24 @@
 <footer class="bg-white-900 text-center text-black w-full mt-10">
   <div class="container px-6 pt-6 mb-6 flex justify-center mx-auto ">
 
-      <button class="bg-transparent hover:bg-blue-500 text-black font-semibold hover:text-black py-2 px-4 border border-dark hover:border-transparent rounded">
-          contact
-        </button>
-      <a
-        href="#!"
-        type="button"
-        class="m-1 h-9 w-9 rounded-full border-2 border-dark uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="mx-auto h-full w-4"
-          fill="currentColor"
-          viewBox="0 0 24 24">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-        </svg>
-      </a>
+        <button class="bg-transparent hover:bg-blue-600 text-black font-semibold hover:text-black py-2 px-4 border border-dark hover:border-transparent rounded">
+            contact
+          </button>
+        <a
+          href="#!"
+          type="button"
+          class="m-1 h-9 w-9 rounded-full border-2 border-dark uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mx-auto h-full w-4"
+            fill="currentColor"
+            viewBox="0 0 24 24">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+          </svg>
+        </a>
 
       <a
         href="#!"
