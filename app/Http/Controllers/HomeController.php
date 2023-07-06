@@ -27,7 +27,7 @@ class HomeController extends Controller
             ]
         ];
 
-        return View('/layout.homepage', ['imgs'=>$imgCarousel]);
+        return View('/homepage', ['imgs'=>$imgCarousel]);
 
     }
 

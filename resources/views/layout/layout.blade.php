@@ -22,6 +22,7 @@
 
 <main>
     @yield('content')
+    @yield('cardEquipe')
 </main>
     @include('layout.footer')
 
