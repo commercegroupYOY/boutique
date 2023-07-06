@@ -1,35 +1,67 @@
-
-<div class="relative w-[600px] p-20 mx-auto">
+@section('carousel')
+<div carousel console>
+<div class="relative w-[1200px] h-[720px]  mx-auto">
     <div class="slide relative" >
-        <img class="w-full h-[300px] object-cover"
+        <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/megadrive2.jpg')}}">
         <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Sega Megadrive 2</div>
     </div>
 
     <div class="slide relative">
-        <img class="w-full h-[300px] object-cover"
+        <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/gameboy.jpg')}}">
         <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Nintendo Gameboy</div>
     </div>
 
     <div class="slide relative">
-        <img class="w-full h-[300px] object-cover"
+        <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/gamegear.jpg')}}">
         <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Sega Game Gear
         </div>
     </div>
     <div class="slide relative">
-        <img class="w-full h-[300px] object-cover"
+        <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/Super-Nintendo.jpg')}}">
         <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Super Nintendo
         </div>
     </div>
     <div class="slide relative">
-        <img class="w-full h-[300px] object-cover"
+        <img class="w-full h-[720px] object-cover"
             src="{{asset ('img/Neogeoaes.jpg')}}">
         <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Neo Geo
         </div>
     </div>
+    <div class="slide relative" >
+        <img class="w-full h-[720px] object-cover"
+            src="{{asset ('img/metalslug.jpg')}}">
+        <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Metal slug</div>
+    </div>
+
+    <div class="slide relative">
+        <img class="w-full h-[720px] object-cover"
+            src="{{asset ('img/pacman.jpg')}}">
+        <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Pacman</div>
+    </div>
+
+    <div class="slide relative">
+        <img class="w-full h-[720px] object-cover"
+            src="{{asset ('img/sonic1.png')}}">
+        <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Sonic 1
+        </div>
+    </div>
+    <div class="slide relative">
+        <img class="w-full h-[720px] object-cover"
+            src="{{asset ('img/spaceinvender.jpg')}}">
+        <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Space invender
+        </div>
+    </div>
+    <div class="slide relative">
+        <img class="w-full h-[720px] object-cover"
+            src="{{asset ('img/super_mario.png')}}">
+        <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Super Mario Bros
+        </div>
+    </div>
+
 
     <!-- The previous button -->
     <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white hover:text-amber-500 cursor-pointer"
@@ -49,6 +81,11 @@
     <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(3)"></div>
     <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(4)"></div>
     <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(5)"></div>
+    <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(6)"></div>
+    <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(7)"></div>
+    <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(8)"></div>
+    <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(9)"></div>
+    <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="currentSlide(10)"></div>
 </div>
 
 <!-- Javascript code -->
@@ -94,8 +131,6 @@
         dots[slideIndex - 1].classList.add('bg-purple-500');
     }
 </script>
-<div class="flex justify-center mx-auto p-10">
-<button class="bg-transparent hover:bg-blue-500 text-black font-semibold hover:text-black py-2 px-4 border border-dark hover:border-transparent rounded">
-    Catalogue
-  </button>
+
 </div>
+@endsection
