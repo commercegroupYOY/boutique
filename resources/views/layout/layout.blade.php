@@ -27,6 +27,10 @@
     @yield('toolbar')
 
 
+<main>
+    @yield('content')
+</main>
+    @include('layout.footer')
 
 
 

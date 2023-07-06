@@ -1,4 +1,4 @@
-@section('carousel')
+
 <div carousel console>
 <div class="relative w-[1200px] h-[720px]  mx-auto">
     <div class="slide relative" >
@@ -133,4 +133,3 @@
 </script>
 
 </div>
-@endsection
