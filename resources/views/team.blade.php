@@ -1,9 +1,13 @@
 @extends('layout.layout')
 
+
+
+
 @section('title')
 Notre équipe @endsection
 
 @section('content')
+
 
 <div class="py-6"></div>
 <h1 class="text-4xl text-center ps-20  hover:uppercase" > Une équipe de choc </h1>

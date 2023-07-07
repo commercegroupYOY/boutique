@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,10 @@ class ProductController extends Controller
 
     public function catalogue(): View
     {
-        return View('/product-list');
+        $products = DB::table('products')->get();
+        $products = DB::select('select * from products');
+
+        return View('/product-list', ['products' => $products]);
     }
 
     public function showIds($id): View 
