@@ -34,6 +34,8 @@ Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
 
 Route::get('/Détails produit', [ProductController::class, 'ProductSheet']);
 
+// Route::post('/Détails produit', [ProductController::class, 'store']);
+
 Route::get('/Panier', [CartController::class, 'index']);
 
 Route::get('/Team', [Team::class, 'index']);
@@ -41,7 +43,18 @@ Route::get('/Team', [Team::class, 'index']);
 Route::get('/TestBDD', [TestBddProducts::class, 'index']);
 
 
+// public function store(Request $request)
+// {
 
+//         $data = [
+//             'news' => [
+//                 'title' => $request->input('title'),
+//                 'content' => $request->input('content'),
+             
+//             ],
+//         ];
+
+//         return view('news.result', $data);
 
 
 

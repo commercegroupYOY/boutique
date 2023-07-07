@@ -17,6 +17,23 @@ class ProductController extends Controller
         return View('/ProductDetail');
 
     }
+    
+    public function store(Request $request)
+    {
+
+        $data = [
+            'user' => [
+                'firstname' => $request->input('firstname'),
+                'lastname' => $request->input('lastname'),
+                'gender' => $request->input('gender'),
+                'newsletter' => $request->input('newsletter'),
+                'mood' => $request->input('mood'),
+            ],
+        ];
+
+        return view('/Détails produit', $data);
+
+    }
 
     public function catalogue(): View
     {
