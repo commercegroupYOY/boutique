@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     public function index() {
-        return "Liste des produits";
+        return "Liste_des_produits";
     }
 
     public function ProductSheet(): View
@@ -22,10 +22,10 @@ class ProductController extends Controller
         return View('/product-list');
     }
 
-    public function showIds($id): View 
+    public function showIds($id): View
     {
         return View('product-details',['id'=>$id]);
-    } 
+    }
 
     public function showId($id) : View
     {

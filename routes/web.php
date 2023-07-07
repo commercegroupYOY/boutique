@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\ProductList;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +29,9 @@ Route::get('/Contact', [ContactController::class, 'Contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
+Route::get('/Liste_des_produits', [ProductList::class, 'productlist']);
 
-Route::get('/Détails produit', [ProductController::class, 'ProductSheet']);
+Route::get('/Details_produit/{id}',[ProductList::class, 'ProductSheet']);
 
 Route::get('/Panier', [CartController::class, 'index']);
 

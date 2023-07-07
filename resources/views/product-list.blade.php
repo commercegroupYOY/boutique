@@ -12,6 +12,5 @@
 
             @include('layout._product._cardProduct')
 
-
     </div>
 @endsection
