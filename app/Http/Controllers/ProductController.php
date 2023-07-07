@@ -6,41 +6,30 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
+
 class ProductController extends Controller
 {
     public function index() {
         return "Liste des produits";
     }
 
-    public function ProductSheet(): View
-    {
-        return View('/ProductDetail');
 
-    }
+    public function ProductSheet($id): View
+    {
+        $products = DB::table('products')->get();
+        $product = DB::table('products')->where('idproducts', $id)->get();
+      
     
-    public function store(Request $request)
-    {
-
-        $data = [
-            'user' => [
-                'firstname' => $request->input('firstname'),
-                'lastname' => $request->input('lastname'),
-                'gender' => $request->input('gender'),
-                'newsletter' => $request->input('newsletter'),
-                'mood' => $request->input('mood'),
-            ],
-        ];
-
-        return view('/Détails produit', $data);
-
+        return view('productDetail', ['product' => $product]);
     }
+
 
     public function catalogue(): View
     {
         $products = DB::table('products')->get();
         $products = DB::select('select * from products');
 
-        return View('/product-list', ['products' => $products]);
+        return View('product-list', ['products' => $products]);
     }
 
     public function showIds($id): View 

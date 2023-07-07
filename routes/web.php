@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +33,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
 
-Route::get('/Détails produit', [ProductController::class, 'ProductSheet']);
-
-// Route::post('/Détails produit', [ProductController::class, 'store']);
+Route::get('/details-produit/{id}', [ProductController::class, 'ProductSheet']);
 
 Route::get('/Panier', [CartController::class, 'index']);
 
@@ -42,35 +41,3 @@ Route::get('/Team', [Team::class, 'index']);
 
 Route::get('/TestBDD', [TestBddProducts::class, 'index']);
 
-
-// public function store(Request $request)
-// {
-
-//         $data = [
-//             'news' => [
-//                 'title' => $request->input('title'),
-//                 'content' => $request->input('content'),
-             
-//             ],
-//         ];
-
-//         return view('news.result', $data);
-
-
-
-
-
-
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-// require __DIR__.'/auth.php';

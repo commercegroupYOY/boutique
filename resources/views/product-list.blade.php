@@ -13,9 +13,14 @@ Liste des produits @endsection
 
     @foreach($products as $product)
 
+    @if ($product->stock > 0)
+    
     @include('_product._cardProduct')
+  
+    @endif
 
-    @endforeach 
+ 
+    @endforeach
 
 </div>
 
