@@ -3,4 +3,5 @@
     <div class="text-center text-xl">vous aimez de retro gaming ?<br>
         découvrez une large sélection de console et de jeux vidéos ! <br>
         pensez aussi à regarder nos vidéos sur YouTube et à nous suivre sur les réseaux sociaux <br>
+    </div>
 </div>
