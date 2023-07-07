@@ -14,7 +14,6 @@
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/logo.png') }}">
     <title>RetroRogilo</title>
-    @include('layout.BDD.BDDConnect')
 </head>
 
 <body>

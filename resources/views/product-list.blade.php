@@ -10,8 +10,8 @@
     </div>
     <div class=" grid grid-cols-1  gap-4  md:grid-cols-2 lg:grid-cols-4 ">
 
-        @for ($i = 0; $i < 20; $i++)
             @include('layout._product._cardProduct')
-        @endfor
+
+
     </div>
 @endsection
