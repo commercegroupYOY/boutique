@@ -15,6 +15,7 @@ class ProductController extends Controller
         return "Liste des produits";
     }
 
+  
 
     public function ProductSheet($id): View
     {
@@ -27,7 +28,6 @@ class ProductController extends Controller
 
     public function ProductListName()
     {
-
         $products = Product::orderBy('name')->get(); 
         return view ('productListName', ['products' => $products]);
     }
@@ -39,6 +39,24 @@ class ProductController extends Controller
         return view ('productListPrice', ['products' => $products]);
     }
 
+    public function CreateProduct(){
+
+        ;
+    }
+
+    public function UpdateProduct(){
+
+        ;
+    }
+
+    public function DeleteProduct(){
+
+        ;
+    }
+
+
+
+   
 
     public function catalogue(): View
     {

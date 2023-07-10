@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use App\Http\Controllers\Team;
+use App\Http\Controllers\Backoffice;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
@@ -9,6 +10,8 @@ use App\Http\Controllers\TestBddProducts;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BackofficeController;
+
 
 
 
@@ -45,3 +48,9 @@ Route::get('/TestBDD', [TestBddProducts::class, 'index']);
 
 Route::get('/ProductListName', [ProductController::class, 'ProductListName']);
 Route::get('/ProductListPrice', [ProductController::class, 'ProductListPrice']);
+
+Route::get('/backoffice', [BackofficeController::class, 'Backoffice']);
+Route::get('/backoffice/Create', [BackofficeController::class, 'ShowCreate']);
+Route::get('/backoffice/Update', [BackofficeController::class, 'ShowUpdate']);
+Route::get('/backoffice/Delete', [BackofficeController::class, 'ShowDelete']);
+
