@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use App\Http\Controllers\Team;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -41,3 +42,6 @@ Route::get('/Team', [Team::class, 'index']);
 
 Route::get('/TestBDD', [TestBddProducts::class, 'index']);
 
+
+Route::get('/ProductListName', [ProductController::class, 'ProductListName']);
+Route::get('/ProductListPrice', [ProductController::class, 'ProductListPrice']);
