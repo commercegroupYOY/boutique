@@ -7,7 +7,6 @@ use App\Models\Products;
 class ProductList extends Controller
 {
 
-
     public function productslist()
     {
         $products = Products::all();
@@ -21,21 +20,9 @@ class ProductList extends Controller
         return view('/ProductDetail', ['product' => $product]);
     }
 
-    public function productListConsole()
+    public function productList( $categoryName)
     {
-        $products = Products::where('category', "console")->get();
-
-        return view('product-list', ['products' => $products]);
-    }
-    public function productListJeuxvideo()
-    {
-        $products = Products::where('category', "jeux-video")->get();
-
-        return view('product-list', ['products' => $products]);
-    }
-    public function productListMerch()
-    {
-        $products = Products::where('category', "merchandising")->get();
+        $products = Products::where('category', $categoryName)->get();
 
         return view('product-list', ['products' => $products]);
     }
