@@ -20,8 +20,8 @@ use App\Http\Controllers\ProductList;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
+Route::get('/', function ()
+{ return view('homepage');
 });
 
 
@@ -30,6 +30,11 @@ Route::get('/Contact', [ContactController::class, 'Contact']);
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/Liste_des_produits', [ProductList::class, 'productlist']);
+
+Route::get('/Liste_des_produits/console', [ProductList::class, 'productListConsole']);
+
+Route::get('/Liste_des_produits/jeux-video', [ProductList::class, 'productListJeuxvideo']);
+Route::get('/Liste_des_produits/merchandising', [ProductList::class, 'productListMerch']);
 
 Route::get('/Details_produit/{id}',[ProductList::class, 'ProductSheet']);
 
