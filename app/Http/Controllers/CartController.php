@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
-    public function index(): View
+    public function cart($id)
     {
-        return View('/cart');
+        $product = DB::select('select * from product where id = ' . $id);
+        return view('cart', ['product' => $product]);
     }
 }

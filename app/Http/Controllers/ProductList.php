@@ -34,4 +34,5 @@ class ProductList extends Controller
         $product = DB::select('select * from product where category = "merchandising"');
         return view('product-list', ['product' => $product]);
     }
+
 }

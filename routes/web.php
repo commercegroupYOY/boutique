@@ -34,6 +34,7 @@ Route::get('/Liste_des_produits', [ProductList::class, 'productlist']);
 Route::get('/Liste_des_produits/console', [ProductList::class, 'productListConsole']);
 
 Route::get('/Liste_des_produits/jeux-video', [ProductList::class, 'productListJeuxvideo']);
+
 Route::get('/Liste_des_produits/merchandising', [ProductList::class, 'productListMerch']);
 
 Route::get('/Details_produit/{id}',[ProductList::class, 'ProductSheet']);
