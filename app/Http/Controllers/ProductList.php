@@ -2,37 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Products;
 
 class ProductList extends Controller
 {
-    public function productlist()
-    {
-        $product = DB::select('select * from product ');
 
-        return view('product-list', ['product' => $product]);
+
+    public function productslist()
+    {
+        $products = Products::all();
+
+        return view('product-list', ['products' => $products]);
     }
 
     public function ProductSheet($id)
     {
-        $product = DB::select('select * from product where id = ' . $id);
+        $product = Products::find($id);
         return view('/ProductDetail', ['product' => $product]);
     }
 
     public function productListConsole()
     {
-        $product = DB::select('select * from product where category = "console"');
-        return view('product-list', ['product' => $product]);
+        $products = Products::where('category', "console")->get();
+
+        return view('product-list', ['products' => $products]);
     }
     public function productListJeuxvideo()
     {
-        $product = DB::select('select * from product where category = "Jeux-video"');
-        return view('product-list', ['product' => $product]);
+        $products = Products::where('category', "jeux-video")->get();
+
+        return view('product-list', ['products' => $products]);
     }
     public function productListMerch()
     {
-        $product = DB::select('select * from product where category = "merchandising"');
-        return view('product-list', ['product' => $product]);
+        $products = Products::where('category', "merchandising")->get();
+
+        return view('product-list', ['products' => $products]);
     }
 
 }

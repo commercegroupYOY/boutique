@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProfileController;
+
 use App\Http\Controllers\Team;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductList;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,6 @@ Route::get('/Contact', [ContactController::class, 'Contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/Liste_des_produits', [ProductList::class, 'productlist']);
-
 Route::get('/Liste_des_produits/console', [ProductList::class, 'productListConsole']);
 
 Route::get('/Liste_des_produits/jeux-video', [ProductList::class, 'productListJeuxvideo']);
@@ -43,24 +42,5 @@ Route::get('/Panier', [CartController::class, 'index']);
 
 Route::get('/Team', [Team::class, 'index']);
 
+route::get('/Liste_des_produits', [ProductList::class, 'productslist']);
 
-
-
-
-
-
-
-
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-// require __DIR__.'/auth.php';
