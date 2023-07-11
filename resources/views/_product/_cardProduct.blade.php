@@ -14,7 +14,7 @@
     <div class=" px-5 pb-5">
         <a href="#">
             <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                {{$product->name}}</h5>
+                {{ Str::upper($product->name) }}</h5>
         </a>
 
         <div class=" items-center justify-between">

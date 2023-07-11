@@ -49,10 +49,19 @@ Route::get('/testBDD', [TestBddProducts::class, 'index']);
 Route::get('/productListName', [ProductController::class, 'productListName']);
 Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
-Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
+Route::get('/backoffice', [BackofficeController::class, 'index']);
 Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate']);
+
 Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
 Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
 
 Route::post('/liste-des-produits-ajout', [BackofficeController::class, 'storeCreate']);
+// Route::put(
 
+Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edit']);
+
+
+// use App\Http\Controllers\UserController;
+
+ Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
+//  Route::delet('/user/{id}', [ProductController::class, 'update']);

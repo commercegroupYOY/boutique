@@ -15,7 +15,7 @@ class ProductController extends Controller
         return "Liste des produits";
     }
 
-  
+   
 
     public function productSheet($id): View
     {
@@ -44,17 +44,33 @@ class ProductController extends Controller
         ;
     }
 
-    public function updateProduct(){
+    public function edit(Product $product){
 
-        ;
+       
+        return view ('_backoffice/updateProduct', ['product' => $product]);
+
+        // $product = DB::table('products')->where('idproducts', $id)->get();
+      
+    
+      
+    
     }
 
-    public function deleteProduct(){
+    // public function destroy(Product $product){
 
-        ;
-    }
+    //     $product->delete();
+         
+    //     return redirect()->route('products.index')
+    //                     ->with('success','Le produit a bien était supprimé');
+    //     ;
+    // }
 
 
+     
+        // $product->update($request->all());
+        
+        // return redirect()->route('products.index')
+        //                 ->with('success','Product updated successfully');
 
    
 
@@ -77,23 +93,23 @@ class ProductController extends Controller
         return View('product-details', ['id' => $id]);
     }
 
-    public function update (Request $request)
+    public function update (Product $product, Request $request)
     {
-        $updateproduct = Flight::find(1);
 
-        $updateproduct->name = $request->name;
-        $newproduct->price = $request->price;
-        $newproduct->weight = $request->weight;
-        $newproduct->image_url = $request->image_url;
-        $newproduct->stock = $request->stock;
-        $newproduct->available = $request->available;
-        $newproduct->description = $request->description;
-        $newproduct->categories_idcategories = $request->categories_idcategories;
+        // $updateproduct = Product::find($product);
 
-        $newproduct->save();
+        $product->name = $request->name;
+        $product->price = $request->price;
+    $product->weight = $request->weight;
+    $product->image_url = $request->image_url;
+        $product->stock = $request->stock;
+        $product->available = $request->available;
+        $product->description = $request->description;
+        $product->categories_idcategories = $request->categories_idcategories;
+
+        $product->update();
  
-        $updateproduct->name = 'Paris to London';
- 
-        $updateproduct->save();
+        return redirect('/liste-des-produits');
+   
     }
 }

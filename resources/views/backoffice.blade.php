@@ -5,68 +5,125 @@
 backoffice Du site @endsection
 
 @section('content')
-{{-- <form>
-    <div class="p-5 bg-slate-50 w-1/2 mx-auto rounded-md mt-6">
-        <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-blue-600 dark:text-white">Your email</label>
-            <input type="email" id="email"
-                class="bg-gray-50 border border-gray-300 text-blue-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@flowbite.com" required>
-        </div>
-        <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-blue-600 dark:text-white">Your
-                password</label>
-            <input type="password" id="password"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required placeholder="............">
 
-        </div>
-        <div class="flex items-start mb-0">
-            <div class="flex items-center h-1">
 
-            </div>
-        </div>
 
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-        <textarea id="message" rows="4"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Leave a comment..."></textarea>
 
-        <button type="submit"
-            class="p-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-</form> --}}
-
-<div class="flex space-x-3 p-5 bg-slate-50 w-1/2 mx-auto rounded-md mt-6">
-
-    <div class="flex-1">
-        <div class="text-center text-2xl ps-10">
-                <h2>Ajouter produit</h2>
-                <a class="" href="/backoffice/Create" role="button">Go !</a>
-            
-        </div>
+<div class="flex -row p-5 w-1/2 mx-15 rounded-md mt-6 mb-30 text-gray-900 bg-gray-200">
+    <div>
+        <h2 class="pr-10 text-3xl">Ajouter un nouveau produit :</h2>
     </div>
-
-    <div class="flex-1">
-        <div class="">
-            <p class="text-center ">
-                <h2>Mettre à jour un produit</h2>
-                <p><a class="" href="/backoffice/Update" role="button">Go !</a></p>
-            </p>
-        </div>
+    <div>
+        <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            href="/backoffice/Create"> Ajouter un nouveau produit </a>
     </div>
+</div>
+</div>
 
-    <div class="flex-1">
-        <div class="">
-            <p class="text-center ">
-                <h2>Supprimer un produit</h2>
-                <p><a class="" href="/backoffice/Delete" role="button">Go !</a></p>
-            </p>
-        </div>
+
+
+<div class="text-gray-900 bg-gray-200">
+    <div class="p-4 flex">
+        <h1 class="text-3xl">
+            Supprimer ou Modifier des données
+        </h1>
     </div>
+    <div class="px-3 py-4 flex justify-center">
+
+
+       
+       
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                @foreach($products as $product)
+                <tr class="border-b">
+                    <th class="text-left p-3 px-5">ID</th>
+                    <th class="text-left p-3 px-5">Name</th>
+                    <th></th>
+                </tr>
+                <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                    <td class="p-3 px-5"><input type="text" value="{{$product->idproducts}}" class="bg-transparent"></td>
+                    <td class="p-3 px-5"><input type="text" value="{{$product->name}}" class="bg-transparent"></td>
+
+                    <td class="p-3 px-5 flex justify-end">
+                        
+                        <a href="/backoffice/product/{{$product->idproducts}}/edit" type="button"
+                            class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</a>
+                        <a href="#"
+                            type="button"
+                            class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
+                    </td>
+                </tr>
+
+
+
+                @endforeach
+            </tbody>
+        </table>
+
+       
+    </div>
+</div>
 
 
 
 
 
- @endsection
 
+
+
+
+{{--
+
+<table class="table-auto">
+    <thead>
+        <tr>
+            <th>Song</th>
+            <th>Artist</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+            <td>Malcolm Lockyer</td>
+            <td>1961</td>
+        </tr>
+        <tr>
+            <td>Witchy Woman</td>
+            <td>The Eagles</td>
+            <td>1972</td>
+        </tr>
+        <tr>
+            <td>Shining Star</td>
+            <td>Earth, Wind, and Fire</td>
+            <td>1975</td>
+        </tr>
+    </tbody>
+</table> --}}
+
+
+
+{{-- <div class="flex-1">
+    <div class="">
+        <p class="text-center ">
+        <h2>Mettre à jour un produit</h2>
+        <p><a class="" href="/backoffice/Update" role="button">Go !</a></p>
+        </p>
+    </div>
+</div>
+
+<div class="flex-1">
+    <div class="">
+        <p class="text-center ">
+        <h2>Supprimer un produit</h2>
+        <p><a class="" href="/backoffice/Delete" role="button">Go !</a></p>
+        </p>
+    </div>
+</div> --}}
+
+
+
+
+
+@endsection

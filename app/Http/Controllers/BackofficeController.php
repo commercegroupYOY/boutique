@@ -10,14 +10,24 @@ use Illuminate\Support\Facades\DB;
 
 class BackofficeController extends Controller
 {
+
+    
+    public function index() {
+
+        $products=Product::all();
+        dd($products->groupBy('categories_idcategories'));
+        return view('backoffice', ['products' => $products]);
+            
+        }
     public function showCreate()
     {
-        $products = DB::table('products')->get();                    //requête SQL queries
+        $products = Product::all();
         return view('/_backoffice/createProduct', ['products' => $products]);
     }
     public function showUpdate(){
 
-        return view('/_backoffice/updateProduct');
+        $products = Product::all();
+        return view('/_backoffice/updateProduct', ['products' => $products]);
     }
     public function showDelete(){
 
@@ -50,6 +60,9 @@ class BackofficeController extends Controller
 
              return redirect('/liste-des-produits');
 
+   
+             
+
   
         //    $newProduct = Produc::create(
 
@@ -62,6 +75,7 @@ class BackofficeController extends Controller
            
         //    return redirect('/product-list');
         }
+
     
     
 }
