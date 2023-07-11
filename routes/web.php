@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\BackOfficeController;
+use App\Http\Controllers\TeamController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,8 +37,9 @@ Route::get('/detailsProduit/{id}', [ProductListController::class, 'productSheet'
 
 Route::get('/cart', [CartController::class, 'index']);
 
-Route::get('/Team', [Team::class, 'index']);
+Route::get('/Team', [TeamController::class, 'index']);
 
 Route::get('/backoffice', [BackOfficeController::class, 'index']);
 
 Route::resource('products', BackOfficeController::class);
+

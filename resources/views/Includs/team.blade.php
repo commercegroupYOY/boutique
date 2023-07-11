@@ -20,11 +20,6 @@ Aliquam ut augue egestas, lobortis lorem ac, pharetra mi. Aliquam erat volutpat.
 
 </p>
 </div>
-@endsection
-
-
-
-@section('cardEquipe')
 
 <div class="md:flex space-x-4 mt-3 ml-8 mr-8">
 
