@@ -56,14 +56,14 @@ class ProductController extends Controller
     
     }
 
-    // public function destroy(Product $product){
+    public function destroy (Product $product){
 
-    //     $product->delete();
+        $product->delete();
          
-    //     return redirect()->route('products.index')
-    //                     ->with('success','Le produit a bien était supprimé');
-    //     ;
-    // }
+        return redirect()->route('products.index')
+                        //  ->with('success','Le produit a bien était supprimé');
+        ;
+    }
 
 
      

@@ -35,7 +35,7 @@ Route::get('/contact', [ContactController::class, 'contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/liste-des-produits', [ProductController::class, 'catalogue']);
+Route::get('/liste-des-produits', [ProductController::class, 'catalogue'])->name('products.index');
 
 Route::get('/details-produit/{id}', [ProductController::class, 'productSheet']);
 
@@ -64,4 +64,4 @@ Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edi
 // use App\Http\Controllers\UserController;
 
  Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
-//  Route::delet('/user/{id}', [ProductController::class, 'update']);
+ Route::delete('/user/{product}', [ProductController::class, 'destroy'])->name('product.delete');

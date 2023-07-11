@@ -49,9 +49,16 @@ backoffice Du site @endsection
                         
                         <a href="/backoffice/product/{{$product->idproducts}}/edit" type="button"
                             class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</a>
-                        <a href="#"
-                            type="button"
-                            class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
+
+
+                       
+                         <form action="{{ route('product.delete', ['product'=>$product]) }}" method="post" onclick="return confirm('Etes vous sur de vouloir supprimer ce produit')">
+                            @csrf
+                            @method('delete')
+                            {{-- <input type="submit" class="" value="Supprimer"> --}}
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+
                     </td>
                 </tr>
 
