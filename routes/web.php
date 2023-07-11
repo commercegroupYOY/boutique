@@ -31,26 +31,28 @@ Route::get('/', function () {
 });
 
 
-Route::get('/Contact', [ContactController::class, 'Contact']);
+Route::get('/contact', [ContactController::class, 'contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/Liste des produits', [ProductController::class, 'catalogue']);
+Route::get('/liste-des-produits', [ProductController::class, 'catalogue']);
 
-Route::get('/details-produit/{id}', [ProductController::class, 'ProductSheet']);
+Route::get('/details-produit/{id}', [ProductController::class, 'productSheet']);
 
-Route::get('/Panier', [CartController::class, 'index']);
+Route::get('/panier', [CartController::class, 'index']);
 
-Route::get('/Team', [Team::class, 'index']);
+Route::get('/team', [Team::class, 'index']);
 
-Route::get('/TestBDD', [TestBddProducts::class, 'index']);
+Route::get('/testBDD', [TestBddProducts::class, 'index']);
 
 
-Route::get('/ProductListName', [ProductController::class, 'ProductListName']);
-Route::get('/ProductListPrice', [ProductController::class, 'ProductListPrice']);
+Route::get('/productListName', [ProductController::class, 'productListName']);
+Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
-Route::get('/backoffice', [BackofficeController::class, 'Backoffice']);
-Route::get('/backoffice/Create', [BackofficeController::class, 'ShowCreate']);
-Route::get('/backoffice/Update', [BackofficeController::class, 'ShowUpdate']);
-Route::get('/backoffice/Delete', [BackofficeController::class, 'ShowDelete']);
+Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
+Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate']);
+Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
+Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
+
+Route::post('/liste-des-produits-ajout', [BackofficeController::class, 'storeCreate']);
 

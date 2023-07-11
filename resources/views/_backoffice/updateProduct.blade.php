@@ -39,7 +39,7 @@ Modifier un produit @endsection
     </form>
     
     
-    <form method="POST" action="/products">
+    <form method="POST" action="/">
     
         <div class="p-5 bg-slate-50 w-1/2 mx-auto rounded-md mt-6">
             <div class="mb-6">
