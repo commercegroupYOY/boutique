@@ -42,16 +42,12 @@ Route::get('/Contact', [ContactController::class, 'Contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/Liste_des_produits/console', [ProductList::class, 'productListConsole']);
+Route::get('/ProductList/{category}', [ProductList::class, 'productListCat']);
 
-Route::get('/Liste_des_produits/jeux-video', [ProductList::class, 'productListJeuxvideo']);
-
-Route::get('/Liste_des_produits/merchandising', [ProductList::class, 'productListMerch']);
-
-Route::get('/Details_produit/{id}',[ProductList::class, 'ProductSheet']);
+Route::get('/Details_produit/{id}',[ProductList::class, 'productSheet']);
 
 Route::get('/Panier', [CartController::class, 'index']);
 
 Route::get('/Team', [Team::class, 'index']);
 
-route::get('/Liste_des_produits', [ProductList::class, 'productslist']);
+route::get('/productsList', [ProductList::class, 'productsList']);

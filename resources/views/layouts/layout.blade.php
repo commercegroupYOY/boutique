@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
-    
+
     <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 
 
@@ -19,13 +19,13 @@
 </head>
 
 <body>
-    @include('layout.header')
+    @include('layouts.header')
 
     <main>
         @yield('content')
-        @yield('cardEquipe')
+
     </main>
-    @include('layout.footer')
+    @include('layouts.footer')
 
 </body>
 

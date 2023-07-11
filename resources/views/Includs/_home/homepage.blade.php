@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.layout')
 
 @section('content')
     <div class="mx-auto">
@@ -7,7 +7,7 @@
 @section('title')
     RétroRigolo
 @endsection
-@include('layout._home._txthome')
-@include('layout._home._carouselconsole')
-@include('layout._home._catalog_choice')
+@include('includs._home._txtHome')
+@include('includs._home._carousel')
+@include('includs._home._catalogChoice')
 @endsection

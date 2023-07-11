@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
-use Illuminate\Support\Facades\DB;
+
 use App\Models\Products;
 
 
@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $product = Products::all();
 
-         return View('/homepage', ['product' => $product]);
+         return View('includs/_home/homepage', ['product' => $product]);
 
     }
 }
