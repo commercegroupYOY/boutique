@@ -36,7 +36,7 @@
 
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
-                            href="productsList" data-te-nav-link-ref>Catalogue</a>
+                            href="/Allproducts" data-te-nav-link-ref>Catalogue</a>
                     </li>
 
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -47,7 +47,7 @@
             </div>
             <div class="relative flex items-center">
                 <a class="mr-4 text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
-                    href="/Panier">
+                    href="/cart">
                     <span class="[&>svg]:w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                             <path
@@ -82,6 +82,8 @@
                                 <li>
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
                                         href="/dashboard" data-te-dropdown-item-ref>Profil</a>
+                                    <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                        href="/backoffice" data-te-dropdown-item-ref>Back Office</a>
                                 </li>
 
                             </ul>

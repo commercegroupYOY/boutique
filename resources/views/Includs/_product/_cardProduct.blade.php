@@ -1,6 +1,6 @@
 @foreach ($products as $product)
     <div class=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-        <form action="{{ url('Details_produit/' . $product->id) }}" method="">
+        <form action="{{ url('detailsProduit/' . $product->id) }}" method="">
             <input type="hidden" name="id" for="id" value="{{ $product->id }}">
             <button type="submit" class="btn btn-primary"> <img class="p-8 rounded-t-lg"
                     src="/{{ $product->picture_url_yoy }}" alt="product image" /></button>

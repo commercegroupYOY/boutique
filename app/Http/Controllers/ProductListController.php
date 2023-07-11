@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 
-class ProductList extends Controller
+class ProductListController extends Controller
 {
 
     public function productsList()
     {
         $products = Products::all();
 
-        return view('Includs/_product/productList', ['products' => $products]);
+        return view('/Includs/_product/productList', ['products' => $products]);
     }
 
     public function productSheet($id)

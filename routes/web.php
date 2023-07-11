@@ -4,22 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductList;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use App\Http\Controllers\ProductListController;
+use App\Http\Controllers\BackOfficeController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,10 +17,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('/', function ()
-{ return view('homepage');
+Route::get('/', function () {
+    return view('homepage');
 });
 
 
@@ -42,12 +28,16 @@ Route::get('/Contact', [ContactController::class, 'Contact']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/ProductList/{category}', [ProductList::class, 'productListCat']);
+route::get('/Allproducts', [ProductListController::class, 'productsList']);
 
-Route::get('/Details_produit/{id}',[ProductList::class, 'productSheet']);
+Route::get('productList/{category}', [ProductListController::class, 'productListCat']);
 
-Route::get('/Panier', [CartController::class, 'index']);
+Route::get('/detailsProduit/{id}', [ProductListController::class, 'productSheet']);
+
+Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/Team', [Team::class, 'index']);
 
-route::get('/productsList', [ProductList::class, 'productsList']);
+Route::get('/backoffice', [BackOfficeController::class, 'index']);
+
+Route::resource('products', BackOfficeController::class);

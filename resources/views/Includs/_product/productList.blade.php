@@ -14,9 +14,9 @@
             </button>
             <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
               <div class=" bg-white  shadow dark-mode:bg-gray-800">
-                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="includs/_product/Liste_des_produits/console">Console</a>
-                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="includs/_product/Liste_des_produits/jeux-video">Jeux-vidéos</a>
-                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="includs/_product/Liste_des_produits/merchandising">Merchandising</a>
+                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/productList/console">Console</a>
+                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/productList/jeux-video">Jeux-vidéos</a>
+                <a class="block px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-blue-600 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/productList/merchandising">Merchandising</a>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
     </div>
     <div class=" grid grid-cols-1  gap-4  md:grid-cols-2 lg:grid-cols-4 ">
 
-            @include('layouts._product._cardProduct')
+            @include('Includs._product._cardProduct')
 
     </div>
 @endsection
