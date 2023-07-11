@@ -5,7 +5,7 @@
         <img src="{{ asset('img/entete.png') }}" class="mx-auto" alt="en-tête">
     </div>
 @section('title')
-    RétroRigolo
+    Profil
 @endsection
 @include('includs._home._txtHome')
 @include('includs._home._carousel')
