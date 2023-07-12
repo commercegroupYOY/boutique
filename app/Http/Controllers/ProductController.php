@@ -106,13 +106,35 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->available = $request->available;
         $product->description = $request->description;
-        $product->categories_idcategories = $request->categories_idcategories;
+        $product->category_id = $request->category_id;
 
         $product->update();
  
         return redirect('/liste-des-produits');
    
     }
+
+    public function store(Request $request) 
+{
+
+    $newproduct = new Product;
+
+    $newproduct->name = $request->name;
+    $newproduct->price = $request->price;
+    $newproduct->weight = $request->weight;
+    $newproduct->image_url = $request->image_url;
+    $newproduct->stock = $request->stock;
+    $newproduct->available = $request->available;
+    $newproduct->description = $request->description;
+    $newproduct->category_id = $request->category_id;
+
+    $newproduct->save();
+
+     return redirect('/liste-des-produits');
+
+
+    
+}
 }
 
 
@@ -146,6 +168,9 @@ class ProductController extends Controller
 //     public function create()
 //     {
 //         //
+
+
+
 //     }
 
 //     /**
@@ -153,7 +178,9 @@ class ProductController extends Controller
 //      */
 //     public function store(StoreProductRequest $request)
 //     {
-//         //
+//         
+
+
 //     }
 
 //     /**
@@ -161,7 +188,7 @@ class ProductController extends Controller
 //      */
 //     public function show(Product $product)
 //     {
-//         //
+//         
 //     }
 
 //     /**
@@ -169,7 +196,7 @@ class ProductController extends Controller
 //      */
 //     public function edit(Product $product)
 //     {
-//         //
+//         
 //     }
 
 //     /**

@@ -89,7 +89,7 @@ Ajouter un produit @endsection
 
 
         <div class=" mb-6">
-            <select name="categories_idcategories" id="categories_idcategories" required>
+            <select name="category_id" id="category_id" required>
                 <option value="1"> Mamifère</option>
                 <option value="2"> Insecte</option>
             </select>

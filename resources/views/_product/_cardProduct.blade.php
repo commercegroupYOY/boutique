@@ -5,7 +5,7 @@
     
    
 
-    <a href="/details-produit/{{$product->idproducts}}">
+    <a href="/details-produit/{{$product->id}}">
         @if ($product->available ==1)
         <img class=" object-contain h-60 w-96 p-8 rounded-t-lg"  src="{{ asset('img/' .$product->image_url) }}" alt="product image" />
         @else 
@@ -18,7 +18,7 @@
     <div class=" px-5 pb-5">
         <a href="#">
             <h5 class="text-xl font-semibold tracking-tight text-gray-900">
-                {{ Str::ucfirst($product->name) }}</h5>
+                {{Str::ucfirst($product->name) }}</h5>
         </a>
 
         <div class=" items-center justify-between">

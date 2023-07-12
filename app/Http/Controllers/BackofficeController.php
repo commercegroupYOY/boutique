@@ -54,7 +54,7 @@ class BackofficeController extends Controller
             $newproduct->stock = $request->stock;
             $newproduct->available = $request->available;
             $newproduct->description = $request->description;
-            $newproduct->categories_idcategories = $request->categories_idcategories;
+            $newproduct->category_id = $request->category_id;
 
             $newproduct->save();
 
