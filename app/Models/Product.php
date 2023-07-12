@@ -3,10 +3,10 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\View\View;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -14,5 +14,9 @@ class Product extends Model
 
     protected $primaryKey = 'idproducts';
 
-    // $products = Product::orderBy('name');
+    public function categorie(): BelongsTo
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+    
 }

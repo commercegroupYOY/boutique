@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\Product;
 use App\Http\Controllers\Team;
-use App\Http\Controllers\Backoffice;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
@@ -11,9 +9,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BackofficeController;
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +20,6 @@ use App\Http\Controllers\BackofficeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('homepage');
-});
 
 
 Route::get('/contact', [ContactController::class, 'contact']);
@@ -65,3 +56,27 @@ Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edi
 
  Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
  Route::delete('/user/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+// require __DIR__.'/auth.php'; Mis à la fin du projet 
+
+
+
+
+
+ require __DIR__.'/auth.php';
