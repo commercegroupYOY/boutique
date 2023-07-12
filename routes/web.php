@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\TeamController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -58,3 +60,8 @@ Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.
 Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
 
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

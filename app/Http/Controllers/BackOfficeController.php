@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
+use function PHPUnit\Framework\greaterThanOrEqual;
+
 class BackOfficeController extends Controller
 {
     /**
@@ -41,7 +43,7 @@ class BackOfficeController extends Controller
 
             'name' => 'required',
 
-            'price' => 'required',
+            'price' => ['required', 'gte:0'],
 
             'description' => 'required',
 
@@ -97,7 +99,7 @@ class BackOfficeController extends Controller
 
             'name' => 'required',
 
-            'price' => 'required',
+            'price' => ['required', 'gte:0'],
 
             'description' => 'required',
 
