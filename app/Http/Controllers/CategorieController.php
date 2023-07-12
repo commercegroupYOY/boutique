@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
+use App\Models\Categorie;
+use App\Http\Requests\StoreCategorieRequest;
+use App\Http\Requests\UpdateCategorieRequest;
 
-
-
-
-class Team extends Controller
+class CategorieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        return View('/team');
+        //
     }
 
     /**
@@ -29,7 +27,7 @@ class Team extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategorieRequest $request)
     {
         //
     }
@@ -37,7 +35,7 @@ class Team extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Categorie $categorie)
     {
         //
     }
@@ -45,7 +43,7 @@ class Team extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Categorie $categorie)
     {
         //
     }
@@ -53,7 +51,7 @@ class Team extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateCategorieRequest $request, Categorie $categorie)
     {
         //
     }
@@ -61,12 +59,8 @@ class Team extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Categorie $categorie)
     {
         //
     }
 }
-
-
-
-

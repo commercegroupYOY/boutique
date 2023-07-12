@@ -48,7 +48,7 @@ backoffice Du site @endsection
                     <td class="p-3 px-5 flex justify-end">
                         
                         <a href="/backoffice/product/{{$product->idproducts}}/edit" type="button"
-                            class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</a>
+                            class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Modifier le produit</a>
 
 
                        
@@ -56,7 +56,7 @@ backoffice Du site @endsection
                             @csrf
                             @method('delete')
                             {{-- <input type="submit" class="" value="Supprimer"> --}}
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                            <button type="submit" class="mr-3 text-sm bg-red-500 hover:bg-black-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer le produit</button>
                         </form>
 
                     </td>
