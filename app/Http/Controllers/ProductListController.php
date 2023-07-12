@@ -27,4 +27,44 @@ class ProductListController extends Controller
         return view('Includs/_product/productList', ['products' => $products]);
     }
 
+    public function orderpricedesc()
+    {
+        $products = Products::orderBy('price', 'desc')->get();
+
+        return view('Includs/_product/productList', ['products' => $products]);
+
+    }
+
+    public function orderpriceasc()
+    {
+        $products = Products::orderBy('price', 'asc')->get();
+
+        return view('Includs/_product/productList', ['products' => $products]);
+
+    }
+
+    public function ordernamedesc()
+    {
+        $products = Products::orderBy('name', 'desc')->get();
+
+        return view('Includs/_product/productList', ['products' => $products]);
+
+    }
+
+    public function ordernameasc()
+    {
+        $products = Products::orderBy('name', 'asc')->get();
+
+        return view('Includs/_product/productList', ['products' => $products]);
+
+    }
+
+    public function orderid()
+    {
+        $products = Products::orderBy('id', 'asc')->get();
+
+        return view('Includs/_product/productList', ['products' => $products]);
+
+    }
+
 }

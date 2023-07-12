@@ -2,24 +2,92 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
-use App\Models\Products;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function cart()
 
-    public function index(): View
     {
-        $product = Products::all();
+        return view('Includs._product.cart');
+    }
 
-         return View('includs/_product/cart', ['product' => $product]);
+    public function addToCart($id)
+
+    {
+        $product = Product::findOrFail($id);
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+
+            $cart[$id]['quantity']++;
+
+        } else {
+
+            $cart[$id] = [
+
+                "name" => $product->name,
+
+                "quantity" => 1,
+
+                "price" => $product->price,
+
+                "image" => $product->picture_url_yoy
+
+            ];
+
+        }
+
+
+
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('produit ajouté au panier !');
 
     }
 
-    public function cart($id)
+
+   public function update(Request $request)
+
     {
-        $product = DB::select('select * from product where id = ' . $id);
-        return view('Includs/_product/cart', ['product' => $product]);
+
+        if($request->id && $request->quantity){
+
+            $cart = session()->get('cart');
+
+            $cart[$request->id]["quantity"] = $request->quantity;
+
+            session()->put('cart', $cart);
+
+            session()->flash('panier mis à jour');
+
+        }
+
     }
+
+
+    public function remove(Request $request)
+
+    {
+
+        if($request->id) {
+
+            $cart = session()->get('cart');
+
+            if(isset($cart[$request->id])) {
+
+                unset($cart[$request->id]);
+
+                session()->put('cart', $cart);
+
+            }
+
+            session()->flash('Produit supprimé');
+
+        }
+
+    }
+
 }
+

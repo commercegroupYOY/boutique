@@ -35,7 +35,15 @@ Route::get('productList/{category}', [ProductListController::class, 'productList
 
 Route::get('/detailsProduit/{id}', [ProductListController::class, 'productSheet']);
 
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/orderByNamedesc/', [ProductListController::class, 'ordernamedesc']);
+
+Route::get('/orderByNameasc/', [ProductListController::class, 'ordernameasc']);
+
+Route::get('/orderByPricedesc/', [ProductListController::class, 'orderpricedesc']);
+
+Route::get('/orderByPriceasc/', [ProductListController::class, 'orderpriceasc']);
+
+Route::get('/orderByid/', [ProductListController::class, 'orderid']);
 
 Route::get('/Team', [TeamController::class, 'index']);
 
@@ -43,3 +51,10 @@ Route::get('/backoffice', [BackOfficeController::class, 'index']);
 
 Route::resource('products', BackOfficeController::class);
 
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');

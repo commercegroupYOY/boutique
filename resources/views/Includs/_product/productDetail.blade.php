@@ -22,12 +22,11 @@
 
                     <p class="leading-relaxed">{{ $product->description }}</p>
                     <div class="mt-5 container flex">
-                        <span class=" flex-1 title-font font-medium text-2xl text-gray-900">{{ $product->price }}
+                        <span class=" flex-1 title-font font-medium text-2xl text-gray-900">{{ $product->price }} €
                         </span>
                         <button class="flex-1 items-center justify-between">
-                            <a href="/cart"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">ajouter
-                                au panier</a>
+                            <a href="{{ route('add.to.cart', $product->id) }}"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">panier</a>
                         </button>
                     </div>
 
