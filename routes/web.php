@@ -46,7 +46,7 @@ Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate']);
 Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
 Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
 
-Route::post('/liste-des-produits-ajout', [BackofficeController::class, 'storeCreate']);
+Route::post('/liste-des-produits-ajout', [ProductController::class, 'store']);
 // Route::put(
 
 Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edit']);

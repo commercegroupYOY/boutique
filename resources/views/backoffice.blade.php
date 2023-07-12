@@ -42,7 +42,7 @@ backoffice Du site @endsection
                     <th></th>
                 </tr>
                 <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                    <td class="p-3 px-5"><input type="text" value="{{$product->idproducts}}" class="bg-transparent"></td>
+                    <td class="p-3 px-5"><input type="text" value="{{$product->id}}" class="bg-transparent"></td>
                     <td class="p-3 px-5"><input type="text" value="{{$product->name}}" class="bg-transparent"></td>
 
                     <td class="p-3 px-5 flex justify-end">
@@ -52,7 +52,7 @@ backoffice Du site @endsection
 
 
                        
-                         <form action="{{ route('product.delete', ['product'=>$product]) }}" method="post" onclick="return confirm('Etes vous sur de vouloir supprimer ce produit')">
+                         <form action="{{ route('product.delete', ['product'=>$product])}}" method="post" onclick="return confirm('Etes vous sur de vouloir supprimer ce produit')">
                             @csrf
                             @method('delete')
                             {{-- <input type="submit" class="" value="Supprimer"> --}}

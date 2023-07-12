@@ -99,6 +99,7 @@ class ProductController extends Controller
        
         // $updateproduct = Product::find($product);
 
+
         $product->name = $request->name;
         $product->price = $request->price;
         $product->weight = $request->weight;
@@ -118,6 +119,9 @@ class ProductController extends Controller
 {
 
     $newproduct = new Product;
+
+    // $validateData =$request->validate([
+    //     'name'=>['required,']
 
     $newproduct->name = $request->name;
     $newproduct->price = $request->price;

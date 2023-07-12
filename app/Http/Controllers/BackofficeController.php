@@ -15,7 +15,9 @@ class BackofficeController extends Controller
     public function index() {
 
         $products=Product::all();
+
         // dd($products->groupBy('categories_idcategories'));
+        
         return view('backoffice', ['products' => $products]);
             
         }
