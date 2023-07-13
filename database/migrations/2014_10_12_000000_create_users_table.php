@@ -17,10 +17,22 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('adress');
+            $table->integer('postalCode');
+            $table->string('city');
+            $table->string('country');
             $table->rememberToken();
             $table->timestamps();
             $table->boolean('is_admin')->nullable();
         });
+
+        // Schema::create('useradress', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('adress');
+        //     $table->integer('postalCode');
+        //     $table->string('city');
+        //     $table->string('country');
+        // });
     }
 
     /**

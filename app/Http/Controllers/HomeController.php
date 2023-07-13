@@ -14,6 +14,7 @@ class HomeController extends Controller
     {
         $product = \DB::select('SELECT * from product WHERE sell = 1');
 
+
          return View('includs/_home/homepage', ['product' => $product]);
 
     }

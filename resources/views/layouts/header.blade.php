@@ -49,7 +49,8 @@
 
                 <button type="button" class="btn btn-info" data-toggle="dropdown">
 
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> panier <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> panier <span
+                        class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
 
                 </button>
 
@@ -59,16 +60,15 @@
 
                         <div class="col-lg-6 col-sm-6 col-6">
 
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span
+                                class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
 
                         </div>
 
                         @php $total = 0 @endphp
 
-                        @foreach((array) session('cart') as $id => $details)
-
+                        @foreach ((array) session('cart') as $id => $details)
                             @php $total += $details['price'] * $details['quantity'] @endphp
-
                         @endforeach
 
                         <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
@@ -79,10 +79,9 @@
 
                     </div>
 
-                    @if(session('cart'))
+                    @if (session('cart'))
 
-                        @foreach(session('cart') as $id => $details)
-
+                        @foreach (session('cart') as $id => $details)
                             <div class="row cart-detail">
 
                                 <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
@@ -95,12 +94,12 @@
 
                                     <p>{{ $details['name'] }}</p>
 
-                                    <span class="price text-info"> €{{ $details['price'] }}</span> <span class="count"> quantité:{{ $details['quantity'] }}</span>
+                                    <span class="price text-info"> €{{ $details['price'] }}</span> <span class="count">
+                                        quantité:{{ $details['quantity'] }}</span>
 
                                 </div>
 
                             </div>
-
                         @endforeach
 
                     @endif
@@ -119,41 +118,48 @@
 
             </div>
 
-                <!-- Container with two dropdown menus -->
-                <div class="relative" data-te-dropdown-ref>
-                    <!-- First dropdown trigger -->
-                    <a class="hidden-arrow mr-4 flex items-center text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
-                        href="#" id="dropdownMenuButton1" role="button" data-te-dropdown-toggle-ref
-                        aria-expanded="false">
-                        <!-- Dropdown trigger icon -->
+            <!-- Container with two dropdown menus -->
+            <div class="relative" data-te-dropdown-ref>
+                <!-- First dropdown trigger -->
+                <a class="hidden-arrow mr-4 flex items-center text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
+                    href="#" id="dropdownMenuButton1" role="button" data-te-dropdown-toggle-ref
+                    aria-expanded="false">
+                    <!-- Dropdown trigger icon -->
 
 
-                        <!-- Second dropdown container -->
-                        <div class="relative" data-te-dropdown-ref>
-                            <!-- Second dropdown trigger -->
-                            <a class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
-                                href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
-                                aria-expanded="false">
-                                <!-- User avatar -->
-                                <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" class="rounded-full"
-                                    style="height: 25px; width: 25px" alt="" loading="lazy" />
-                            </a>
-                            <!-- Second dropdown menu -->
-                            <ul class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
-                                aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                                <!-- Second dropdown menu items -->
-                                <li>
-                                    <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                                        href="/dashboard" data-te-dropdown-item-ref>Connexion</a>
-                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                                        href="/register" data-te-dropdown-item-ref>créer un compte</a>
-                                    <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                                        href="/backoffice" data-te-dropdown-item-ref>Back Office</a>
-                                </li>
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref>
+                        <!-- Second dropdown trigger -->
+                        <a class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                            href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
+                            aria-expanded="false">
+                            <!-- User avatar -->
+                            <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" class="rounded-full"
+                                style="height: 25px; width: 25px" alt="" loading="lazy" />
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="/dashboard" data-te-dropdown-item-ref>Connexion</a>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="/register" data-te-dropdown-item-ref>créer un compte</a>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="/backoffice" data-te-dropdown-item-ref>Back Office</a>
 
-                            </ul>
-                        </div>
-                </div>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="{{ url('/logout') }}">déconnexion</a>
+                                <a class="block  w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal
+                                    text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline
+                                    disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="/profile" data-te-dropdown-item-ref>profil</a>
+                            </li>
+
+                        </ul>
+                    </div>
             </div>
+        </div>
     </nav>
 </header>

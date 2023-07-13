@@ -20,12 +20,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/backoffice', [BackOfficeController::class, 'index']);
+});
+// Route::get('/backoffice', [BackOfficeController::class, 'index']);
 require __DIR__ . '/auth.php';
 
 Route::get('/', function () {
     return view('homepage');
 });
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/Contact', [ContactController::class, 'Contact']);
 
@@ -49,8 +54,6 @@ Route::get('/orderByid/', [ProductListController::class, 'orderid']);
 
 Route::get('/Team', [TeamController::class, 'index']);
 
-Route::get('/backoffice', [BackOfficeController::class, 'index']);
-
 Route::resource('products', BackOfficeController::class);
 
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
@@ -60,8 +63,5 @@ Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.
 Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
 
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
-
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

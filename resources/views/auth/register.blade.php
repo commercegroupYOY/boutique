@@ -39,6 +39,30 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <x-input-label for="adress" :value="__('Adress')" />
+            <x-text-input id="adress" class="block mt-1 w-full" type="adress" name="adress" :value="old('adress')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('adress')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="postalCode" :value="__('PostalCode')" />
+            <x-text-input id="postalCode" class="block mt-1 w-full" type="postalCode" name="postalCode" :value="old('postalCode')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('postalCode')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="city" :value="__('City')" />
+            <x-text-input id="city" class="block mt-1 w-full" type="city" name="city" :value="old('city')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('city')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="country" :value="__('country')" />
+            <x-text-input id="country" class="block mt-1 w-full" type="country" name="country" :value="old('country')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('country')" class="mt-2" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}

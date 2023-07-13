@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-Notre équipe @endsection
+profil @endsection
 
 @section('content')
 
