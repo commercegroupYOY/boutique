@@ -47,7 +47,7 @@ backoffice Du site @endsection
 
                     <td class="p-3 px-5 flex justify-end">
                         
-                        <a href="/backoffice/product/{{$product->idproducts}}/edit" type="button"
+                        <a href="/backoffice/product/{{$product->id}}/edit" type="button"
                             class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Modifier le produit</a>
 
 

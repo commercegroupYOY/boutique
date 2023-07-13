@@ -32,7 +32,7 @@
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
 
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
-              href="/" data-te-nav-link-ref>Acceuil</a>
+              href="{{ route('accueil')}}" data-te-nav-link-ref>Acceuil</a>
           </li>
 
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -85,7 +85,19 @@
                 <!-- Second dropdown menu items -->
                 <li>
                   <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                    href="#" data-te-dropdown-item-ref>Profil</a>
+                    href="{{route('dashboard')}}" data-te-dropdown-item-ref>login</a>
+                </li>
+                <li>
+                  <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
+                </li>
+                <li>
+                  <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
+                </li>
+                <li>
+                  <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
                 </li>
 
               </ul>

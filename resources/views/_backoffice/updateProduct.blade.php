@@ -14,6 +14,30 @@ Modifier un produit @endsection
 {{-- {{dd($products)}} --}}
 
 
+{{-- @if ($errors->any())
+
+<div class="text-red-900">
+    @foreach ($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+</div>
+
+@endif --}}
+
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    
+
+{{-- Heleper errors, fuonction any qui verifie s'il y a au moins une errreur --}}
+
 <form method="POST" action="{{ route('product.update', ['product'=>$product]) }}">
     {{ csrf_field() }}
     @method('put')
@@ -28,7 +52,7 @@ Modifier un produit @endsection
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required name="name" value="{{$product->name}}">
         </div>
-        
+
         <div class="mb-6">
             <label for="price" class="block mb-2 text-sm font-medium text-blue-600">Prix du
                 produit</label>
@@ -69,8 +93,8 @@ Modifier un produit @endsection
 
 
                 <option value="1" {{$product->available}}> Disponible</option>
-                <option value="0" {{$product->available}}> Non-disponible</option>
-                
+                <option value="2" {{$product->available}}> Non-disponible</option>
+
             </select>
         </div>
 
@@ -88,7 +112,7 @@ Modifier un produit @endsection
 
 
         <div class=" mb-6">
-            <select name="categories_idcategories" name="categories_idcategories" required>
+            <select name="category_id" name="category_id" required>
                 <option value="1"> Mamifère</option>
                 <option value="2"> Insecte</option>
             </select>

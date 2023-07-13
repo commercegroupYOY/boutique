@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Support\MessageProvider;
 
 
 
@@ -20,7 +21,7 @@ class ProductController extends Controller
     public function productSheet($id): View
     {
         // $products = DB::table('products')->get();
-        $product = DB::table('products')->where('idproducts', $id)->get();
+        $product = DB::table('products')->where('id', $id)->get();
       
     
         return view('productDetail', ['product' => $product]);
@@ -60,7 +61,7 @@ class ProductController extends Controller
 
         $product->delete();
          
-        return redirect()->route('products.index')
+        return redirect()->route('backoffice')
                          ->with('success','Le produit a bien était supprimé');
         
     }
@@ -118,11 +119,25 @@ class ProductController extends Controller
     public function store(Request $request) 
 {
 
+    // $errors = $validator->errors();
+
+     $request->validate([
+    'name'=> ['required','max:150','min:3', 'unique:products','string'],
+    'price'=>['required','min:0','integer'],
+    'weight'=>['integer','min:0'],
+    'image_url'=>['required','string'],
+    'stock'=>['required','integer','min:0'],
+    'available'=>['required','boolean'],
+    // ['required','numeric','min:0','max:1'],
+    'description'=>['max:1000','string'],
+    'category_id'=>['required','integer']
+   ]);
+
+   
+//    dd($errors);
+  
+
     $newproduct = new Product;
-
-    // $validateData =$request->validate([
-    //     'name'=>['required,']
-
     $newproduct->name = $request->name;
     $newproduct->price = $request->price;
     $newproduct->weight = $request->weight;
@@ -134,8 +149,11 @@ class ProductController extends Controller
 
     $newproduct->save();
 
-     return redirect('/liste-des-produits');
+    return redirect('/liste-des-produits');
 
+     //En donnat Product à manger je pourrait très bien utiliser mon medele et faire un Post::create([
+        // 'name'=>$request_>name,  ETC ....
+   
 
     
 }

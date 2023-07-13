@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Team;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\BackofficeController;
 
 Route::get('/contact', [ContactController::class, 'contact']);
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('accueil');   
 
 Route::get('/liste-des-produits', [ProductController::class, 'catalogue'])->name('products.index');
 
@@ -40,8 +41,8 @@ Route::get('/testBDD', [TestBddProducts::class, 'index']);
 Route::get('/productListName', [ProductController::class, 'productListName']);
 Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
-Route::get('/backoffice', [BackofficeController::class, 'index']);
-Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate']);
+Route::get('/backoffice', [BackofficeController::class, 'index'])->name('backoffice');
+Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate'])->name('products.added');
 
 Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
 Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
@@ -73,6 +74,16 @@ Route::middleware('auth')->group(function () {
 });
 
 
+ 
+Route::get('/greeting/{locale}', function (string $locale) {
+    if (! in_array($locale, ['en', 'es', 'fr'])) {
+        abort(400);
+    }
+ 
+    App::setLocale($locale);
+ 
+    // ...
+});
 // require __DIR__.'/auth.php'; Mis à la fin du projet 
 
 
@@ -80,3 +91,6 @@ Route::middleware('auth')->group(function () {
 
 
  require __DIR__.'/auth.php';
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

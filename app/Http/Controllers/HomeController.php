@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\Product;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Support\MessageProvider;
 
 
 
@@ -78,5 +83,14 @@ class HomeController extends Controller
     {
         //
     }
+
+
+ 
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
   
 }
+
