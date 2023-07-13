@@ -26,7 +26,6 @@ return new class extends Migration
             $table->boolean('available');
             $table->text('description');
             $table->foreignId('category_id');
-            // $table->foreignId('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

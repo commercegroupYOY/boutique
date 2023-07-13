@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('adresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id');
+            $table->integer('streetnum');
+            $table->string('street');
+            $table->integer('zipcode');
             $table->timestamps();
         });
     }
