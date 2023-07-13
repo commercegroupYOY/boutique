@@ -40,10 +40,6 @@ class ProductController extends Controller
         return view ('productListPrice', ['products' => $products]);
     }
 
-    public function createProduct(){
-
-        ;
-    }
 
     public function edit(Product $product){
 
@@ -98,7 +94,18 @@ class ProductController extends Controller
     {
 
        
-        // $updateproduct = Product::find($product);
+       
+     $request->validate([
+        'name'=> ['required','max:150','min:3', 'unique:products','string'],
+        'price'=>['required','min:0','integer'],
+        'weight'=>['integer','min:0'],
+        'image_url'=>['required','string'],
+        'stock'=>['required','integer','min:0'],
+        'available'=>['required','boolean'],
+        // ['required','numeric','min:0','max:1'],
+        'description'=>['max:1000','string'],
+        'category_id'=>['required','integer']
+       ]);
 
 
         $product->name = $request->name;
@@ -134,9 +141,6 @@ class ProductController extends Controller
    ]);
 
    
-//    dd($errors);
-  
-
     $newproduct = new Product;
     $newproduct->name = $request->name;
     $newproduct->price = $request->price;

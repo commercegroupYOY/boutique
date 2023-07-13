@@ -12,6 +12,16 @@ Ajouter un produit @endsection
     <h1 class="text-center text-3xl text-blue-600">Ajouter un produit<br></h1>
 </div>
 
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 {{-- {{dd($products)}} --}}
 
 <form method="POST" action="/liste-des-produits-ajout">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
-class CartController extends Controller
+class AdressController extends Controller
 {
     /**
      * Display a listing of the resource.
