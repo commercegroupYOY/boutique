@@ -146,6 +146,7 @@
                                     href="/dashboard" data-te-dropdown-item-ref>Connexion</a>
                                 <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
                                     href="/register" data-te-dropdown-item-ref>créer un compte</a>
+
                                 <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
                                     href="/backoffice" data-te-dropdown-item-ref>Back Office</a>
 

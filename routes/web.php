@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\BackOfficeController;
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -19,6 +20,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware('auth')->group(function () {
+    // Commandes
+    Route::prefix('commandes')->group(function () {
+        Route::resource('/', 'OrderController')->names([
+            'create' => 'commandes.create',
+            'store' => 'commandes.store',
+        ])->only(['create', 'store']);
+    });
+  });
 
 Route::middleware('admin')->group(function () {
     Route::get('/backoffice', [BackOfficeController::class, 'index']);
@@ -65,3 +76,5 @@ Route::patch('update-cart', [CartController::class, 'update'])->name('update.car
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+route::get('/DetailsController', [App\Http\Controllers\DetailsController::class, 'index']);
