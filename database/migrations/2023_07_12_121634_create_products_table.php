@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -18,14 +18,14 @@ return new class extends Migration
             // $table->collation = 'utf8mb4_unicode_ci';
 
             $table->id('id');
-            $table->string('name',50);
+            $table->string('name', 50);
             $table->float('price');
             $table->float('weight');
             $table->string('image_url');
             $table->integer('stock');
             $table->boolean('available');
             $table->text('description');
-            $table->foreignId('category_id');
+            $table->foreignId('categorie_id')->constrained();
             $table->timestamps();
         });
     }
@@ -37,9 +37,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-
-
-//     Schema::rename($from, $to){
-// ;
-//     }
 };

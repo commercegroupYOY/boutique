@@ -16,74 +16,74 @@ class ProductController extends Controller
         return "Liste des produits";
     }
 
-   
+
 
     public function productSheet($id): View
     {
         // $products = DB::table('products')->get();
         $product = DB::table('products')->where('id', $id)->get();
-      
-    
+
+
         return view('productDetail', ['product' => $product]);
     }
 
     public function productListName()
     {
-        $products = Product::orderBy('name')->get(); 
+        $products = Product::orderBy('name')->get();
         return view ('productListName', ['products' => $products]);
     }
 
     public function productListPrice()
     {
 
-        $products = Product::orderBy('price')->get(); 
+        $products = Product::orderBy('price')->get();
         return view ('productListPrice', ['products' => $products]);
     }
 
 
     public function edit(Product $product){
 
-       
+
         return view ('_backoffice/updateProduct', ['product' => $product]);
 
         // $product = DB::table('products')->where('idproducts', $id)->get();
-      
-    
-      
-    
+
+
+
+
     }
 
     public function destroy (Product $product){
 
         $product->delete();
-         
+
         return redirect()->route('backoffice')
                          ->with('success','Le produit a bien était supprimé');
-        
+
     }
 
 
-     
+
         // $product->update($request->all());
-        
+
         // return redirect()->route('products.index')
         //                 ->with('success','Product updated successfully');
 
-   
+
 
     public function catalogue(): View
     {
         // $products = DB::select('select * from products');        // requête simple
-        
+
         $products = DB::table('products')->get();                    //requête SQL queries
-       
+
         return View('product-list', ['products' => $products]);
     }
 
-    public function showIds($id): View 
+    public function showIds($id): View
     {
         return View('product-details',['id'=>$id]);
-    } 
+    }
 
     public function showId($id) : View
     {
@@ -93,8 +93,6 @@ class ProductController extends Controller
     public function update (Product $product, Request $request)
     {
 
-       
-       
      $request->validate([
         'name'=> ['required','max:150','min:3', 'unique:products','string'],
         'price'=>['required','min:0','integer'],
@@ -118,12 +116,12 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
 
         $product->update();
- 
+
         return redirect('/liste-des-produits');
-   
+
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
 {
 
     // $errors = $validator->errors();
@@ -140,7 +138,7 @@ class ProductController extends Controller
     'category_id'=>['required','integer']
    ]);
 
-   
+
     $newproduct = new Product;
     $newproduct->name = $request->name;
     $newproduct->price = $request->price;
@@ -149,7 +147,7 @@ class ProductController extends Controller
     $newproduct->stock = $request->stock;
     $newproduct->available = $request->available;
     $newproduct->description = $request->description;
-    $newproduct->category_id = $request->category_id;
+    $newproduct->categorie_id = $request->category_id;
 
     $newproduct->save();
 
@@ -157,10 +155,13 @@ class ProductController extends Controller
 
      //En donnat Product à manger je pourrait très bien utiliser mon medele et faire un Post::create([
         // 'name'=>$request_>name,  ETC ....
-   
 
-    
+
+
 }
+
+
+
 }
 
 
@@ -204,7 +205,7 @@ class ProductController extends Controller
 //      */
 //     public function store(StoreProductRequest $request)
 //     {
-//         
+//
 
 
 //     }
@@ -214,7 +215,7 @@ class ProductController extends Controller
 //      */
 //     public function show(Product $product)
 //     {
-//         
+//
 //     }
 
 //     /**
@@ -222,7 +223,7 @@ class ProductController extends Controller
 //      */
 //     public function edit(Product $product)
 //     {
-//         
+//
 //     }
 
 //     /**

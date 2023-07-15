@@ -30,7 +30,7 @@
 
         <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-
+            <div class="relative" data-te-dropdown-ref>
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
               href="{{ route('accueil')}}" data-te-nav-link-ref>Acceuil</a>
           </li>
@@ -44,12 +44,66 @@
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
               href="/team" data-te-nav-link-ref>Notre équipe</a>
           </li>
-          <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-            <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
-              href="/backoffice" data-te-nav-link-ref>Backoffice</a>
+        </ul>
+      </div>
+
+
+
+      <div class="relative" data-te-dropdown-ref>
+        <button
+          class="flex items-center whitespace-nowrap "
+          type="button"
+          id="dropdownMenuButton1"
+          data-te-dropdown-toggle-ref
+          aria-expanded="false"
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          Backoffice
+          <span class="ml-2 w-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-5 w-5">
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd" />
+            </svg>
+          </span>
+        </button>
+        <ul
+          class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+          aria-labelledby="dropdownMenuButton1"
+          data-te-dropdown-menu-ref>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+              href="/backoffice"
+              data-te-dropdown-item-ref
+              >Produits</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+              href="#"
+              data-te-dropdown-item-ref
+              >Catégories</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+              href="#"
+              data-te-dropdown-item-ref
+              >Utilisateurs</a
+            >
           </li>
         </ul>
       </div>
+
+
       <div class="relative flex items-center">
         <a class="mr-4 text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
           href="/Panier">

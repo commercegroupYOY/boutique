@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Team;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\TestBddProducts;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\BackofficeController;
 
 /*
@@ -25,13 +27,13 @@ use App\Http\Controllers\BackofficeController;
 
 Route::get('/contact', [ContactController::class, 'contact']);
 
-Route::get('/', [HomeController::class, 'index'])->name('accueil');   
+Route::get('/', [HomeController::class, 'index'])->name('accueil');
 
 Route::get('/liste-des-produits', [ProductController::class, 'catalogue'])->name('products.index');
 
 Route::get('/details-produit/{id}', [ProductController::class, 'productSheet']);
 
-Route::get('/panier', [CartController::class, 'index']);
+Route::get('/Panier', [CartController::class, 'index']);
 
 Route::get('/team', [Team::class, 'index']);
 
@@ -42,26 +44,36 @@ Route::get('/productListName', [ProductController::class, 'productListName']);
 Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
 Route::get('/backoffice', [BackofficeController::class, 'index'])->name('backoffice');
+
 Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate'])->name('products.added');
 
-Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
-Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
+// Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
+// Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
 
 Route::post('/liste-des-produits-ajout', [ProductController::class, 'store']);
 // Route::put(
 
+
+
 Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edit']);
+Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/delet/{product}', [ProductController::class, 'destroy'])->name('product.delete');
 
 
-// use App\Http\Controllers\UserController;
+// Route::get('/backoffice/product/{category}/edit', [CategorieController::class, 'edit']);
+// Route::put('/update/{category}', [CategorieController::class, 'update'])->name('categories.update');
+// Route::delete('/delet/{category}', [CategorieController::class, 'destroy'])->name('categories.delete');
 
- Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
- Route::delete('/user/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+
+// Route::get('/backoffice/product/{user}/edit', [ProductController::class, 'edit']);
+// Route::put('/update/{user}', [ProductController::class, 'update'])->name('users.update');
+// Route::delete('/delet/{user}', [ProductController::class, 'destroy'])->name('users.delete');
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -74,23 +86,23 @@ Route::middleware('auth')->group(function () {
 });
 
 
- 
+
 Route::get('/greeting/{locale}', function (string $locale) {
-    if (! in_array($locale, ['en', 'es', 'fr'])) {
+    if (!in_array($locale, ['en', 'es', 'fr'])) {
         abort(400);
     }
- 
+
     App::setLocale($locale);
- 
+
     // ...
 });
-// require __DIR__.'/auth.php'; Mis à la fin du projet 
+// require __DIR__.'/auth.php'; Mis à la fin du projet
 
 
 
 
 
- require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
