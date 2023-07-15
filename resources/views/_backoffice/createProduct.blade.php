@@ -36,8 +36,8 @@ Ajouter un produit @endsection
 
             <label for="name" class="block mb-2 text-sm font-medium text-blue-600">Nom du
                 produit</label>
-                
-            <input type="text 
+
+            <input type="text
                 class=" bg-gray-50 border border-gray-300 text-blue-600 text-sm rounded-lg focus:ring-blue-500
                 focus:border-blue-500 block w-full p-2.5
                " placeholder="Perdrix ..." required
@@ -97,12 +97,17 @@ Ajouter un produit @endsection
 
         </div>
 
-
+       
         <div class=" mb-6">
             <select name="category_id" id="category_id" required>
-                <option value="1"> Mamifère</option>
-                <option value="2"> Insecte</option>
-            </select>
+
+
+            @foreach ( $categories  as $categorie )
+
+            <option value="{{ $categorie->id }}"> <h2>{{  $categorie->name}} </h2></option>
+
+            @endforeach
+        </select>
         </div>
 
 

@@ -10,8 +10,14 @@ use App\Http\Controllers\TestBddProducts;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BackofficeController;
+
+
+// use Illuminate\View\View;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Contracts\Support\MessageProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,32 +49,32 @@ Route::get('/testBDD', [TestBddProducts::class, 'index']);
 Route::get('/productListName', [ProductController::class, 'productListName']);
 Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
-Route::get('/backoffice', [BackofficeController::class, 'index'])->name('backoffice');
+Route::get('/backoffice', [ProductController::class, 'index'])->name('backoffice');
+Route::get('/backoffice/categories', [CategoryController::class, 'index'])->name('backoffice.categories');
 
-Route::get('/backoffice/Create', [BackofficeController::class, 'showCreate'])->name('products.added');
 
-// Route::get('/backoffice/Update', [BackofficeController::class, 'showUpdate']);
-// Route::get('/backoffice/Delete', [BackofficeController::class, 'showDelete']);
 
+
+
+
+
+
+Route::get('/backoffice/Create/product', [ProductController::class, 'create'])->name('products.added');
 Route::post('/liste-des-produits-ajout', [ProductController::class, 'store']);
-// Route::put(
-
-
-
 Route::get('/backoffice/product/{product}/edit', [ProductController::class, 'edit']);
 Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/delet/{product}', [ProductController::class, 'destroy'])->name('product.delete');
 
 
-// Route::get('/backoffice/product/{category}/edit', [CategorieController::class, 'edit']);
-// Route::put('/update/{category}', [CategorieController::class, 'update'])->name('categories.update');
-// Route::delete('/delet/{category}', [CategorieController::class, 'destroy'])->name('categories.delete');
 
 
-// Route::get('/backoffice/product/{user}/edit', [ProductController::class, 'edit']);
-// Route::put('/update/{user}', [ProductController::class, 'update'])->name('users.update');
-// Route::delete('/delet/{user}', [ProductController::class, 'destroy'])->name('users.delete');
+Route::get('/backoffice/category/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/backoffice/category/store', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/backoffice/{category}/edit/', [CategoryController::class, 'edit'])->name('categories.edit');
 
+
+Route::put('/backoffice/update/category', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/delet/la/{category}', [CategoryController::class, 'destroy'])->name('category.delete');
 
 
 

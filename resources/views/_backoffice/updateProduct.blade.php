@@ -11,7 +11,7 @@ Modifier un produit @endsection
     <h1 class="text-center text-3xl text-blue-600"> Modifier un produit <br></h1>
 </div>
 
-{{-- {{dd($products)}} --}}
+{{-- {{dd($product)}} --}}
 
 
 {{-- @if ($errors->any())
@@ -34,7 +34,7 @@ Modifier un produit @endsection
         </div>
     @endif
 
-    
+
 
 {{-- Heleper errors, fuonction any qui verifie s'il y a au moins une errreur --}}
 

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->boolean('available');
             $table->text('description');
-            $table->foreignId('categorie_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }

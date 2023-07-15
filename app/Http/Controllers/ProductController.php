@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +13,6 @@ use Illuminate\Contracts\Support\MessageProvider;
 
 class ProductController extends Controller
 {
-    public function index() {
-        return "Liste des produits";
-    }
 
 
 
@@ -46,30 +44,18 @@ class ProductController extends Controller
 
         return view ('_backoffice/updateProduct', ['product' => $product]);
 
-        // $product = DB::table('products')->where('idproducts', $id)->get();
-
-
-
-
-    }
-
-    public function destroy (Product $product){
-
-        $product->delete();
-
-        return redirect()->route('backoffice')
-                         ->with('success','Le produit a bien était supprimé');
-
     }
 
 
 
-        // $product->update($request->all());
 
-        // return redirect()->route('products.index')
-        //                 ->with('success','Product updated successfully');
+        public function create()
+        {
 
+            $categories = Product::all();
 
+            return view('_backoffice/createProduct', ['categories'=>$categories]);
+        }
 
     public function catalogue(): View
     {
@@ -85,6 +71,17 @@ class ProductController extends Controller
         return View('product-details',['id'=>$id]);
     }
 
+    public function index() {
+
+        $products=Product::all();
+
+        // dd($products->groupBy('categories_id'));
+
+        return view('backoffice', ['products' => $products]);
+
+    }
+
+
     public function showId($id) : View
     {
         return View('product-details', ['id' => $id]);
@@ -94,7 +91,7 @@ class ProductController extends Controller
     {
 
      $request->validate([
-        'name'=> ['required','max:150','min:3', 'unique:products','string'],
+        'name'=> ['required','max:150','min:3','string'],
         'price'=>['required','min:0','integer'],
         'weight'=>['integer','min:0'],
         'image_url'=>['required','string'],
@@ -147,7 +144,7 @@ class ProductController extends Controller
     $newproduct->stock = $request->stock;
     $newproduct->available = $request->available;
     $newproduct->description = $request->description;
-    $newproduct->categorie_id = $request->category_id;
+    $newproduct->category_id = $request->category_id;
 
     $newproduct->save();
 
@@ -156,10 +153,16 @@ class ProductController extends Controller
      //En donnat Product à manger je pourrait très bien utiliser mon medele et faire un Post::create([
         // 'name'=>$request_>name,  ETC ....
 
-
-
 }
 
+public function destroy (Product $product){
+
+    $product->delete();
+
+    return redirect()->route('backoffice')
+                     ->with('success','Le produit a bien était supprimé');
+
+}
 
 
 }
@@ -229,10 +232,7 @@ class ProductController extends Controller
 //     /**
 //      * Update the specified resource in storage.
 //      */
-//     public function update(UpdateProductRequest $request, Product $product)
-//     {
-//         //
-//     }
+
 
 //     /**
 //      * Remove the specified resource from storage.

@@ -15,7 +15,7 @@ backoffice Du site @endsection
     </div>
     <div>
         <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
-            href="/backoffice/Create"> Ajouter un nouveau produit </a>
+            href="/backoffice/Create/product"> Ajouter un nouveau produit </a>
     </div>
 </div>
 </div>
@@ -31,8 +31,8 @@ backoffice Du site @endsection
     <div class="px-3 py-4 flex justify-center">
 
 
-       
-       
+
+
         <table class="w-full text-md bg-white shadow-md rounded mb-4">
             <tbody>
                 @foreach($products as $product)
@@ -46,16 +46,15 @@ backoffice Du site @endsection
                     <td class="p-3 px-5"><input type="text" value="{{$product->name}}" class="bg-transparent"></td>
 
                     <td class="p-3 px-5 flex justify-end">
-                        
+
                         <a href="/backoffice/product/{{$product->id}}/edit" type="button"
                             class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Modifier le produit</a>
 
 
-                       
+
                          <form action="{{ route('product.delete', ['product'=>$product])}}" method="post" onclick="return confirm('Etes vous sur de vouloir supprimer ce produit')">
                             @csrf
                             @method('delete')
-                            {{-- <input type="submit" class="" value="Supprimer"> --}}
                             <button type="submit" class="mr-3 text-sm bg-red-500 hover:bg-black-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer le produit</button>
                         </form>
 
@@ -68,7 +67,7 @@ backoffice Du site @endsection
             </tbody>
         </table>
 
-       
+
     </div>
 </div>
 

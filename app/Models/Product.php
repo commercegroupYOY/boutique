@@ -4,7 +4,8 @@ namespace App\Models;
 
 
 
-use App\Models\Categorie;
+
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,9 +17,9 @@ class Product extends Model
 
 
 
-    public function categorie(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Categorie::class);
+        return $this->belongsTo(Category::class);
     }
 
 }
