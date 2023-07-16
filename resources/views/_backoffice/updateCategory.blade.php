@@ -24,7 +24,7 @@ Modifier un produit @endsection
 
 @endif --}}
 
-@if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -44,10 +44,11 @@ Modifier un produit @endsection
 
 
         <div class="mb-6">
-            <label for="name" class="block mb-2 text-sm font-medium text-blue-600">Changer le nom de la catégorie</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-blue-600">
+                 Changer le nom de la catégorie </label>
             <input type="text"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                name="name" value="{{$category->name}}">
+                required name="name" value="{{$category->name}}">
         </div>
 
 

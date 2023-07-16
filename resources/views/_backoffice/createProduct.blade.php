@@ -97,14 +97,14 @@ Ajouter un produit @endsection
 
         </div>
 
-       
+
         <div class=" mb-6">
             <select name="category_id" id="category_id" required>
 
 
-            @foreach ( $categories  as $categorie )
+            @foreach ( $categories  as $category)
 
-            <option value="{{ $categorie->id }}"> <h2>{{  $categorie->name}} </h2></option>
+            <option value="{{ $category->id }}"> <h2>{{  $category->name}} </h2></option>
 
             @endforeach
         </select>

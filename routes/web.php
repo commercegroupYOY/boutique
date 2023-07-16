@@ -70,7 +70,8 @@ Route::delete('/delet/{product}', [ProductController::class, 'destroy'])->name('
 
 Route::get('/backoffice/category/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/backoffice/category/store', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/backoffice/{category}/edit/', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::get('/backoffice/category/{category}/edit/', [CategoryController::class, 'edit'])->name('categories.edit');
+
 
 
 Route::put('/backoffice/update/category', [CategoryController::class, 'update'])->name('category.update');

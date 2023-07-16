@@ -52,9 +52,10 @@ class ProductController extends Controller
         public function create()
         {
 
-            $categories = Product::all();
+            $categories = Category::all();
+            $products = Product::all();
 
-            return view('_backoffice/createProduct', ['categories'=>$categories]);
+            return view('_backoffice/createProduct', ['categories'=>$categories], ['products'=>$products]);
         }
 
     public function catalogue(): View
@@ -90,6 +91,7 @@ class ProductController extends Controller
     public function update (Product $product, Request $request)
     {
 
+    $categories = Category::all();
      $request->validate([
         'name'=> ['required','max:150','min:3','string'],
         'price'=>['required','min:0','integer'],
@@ -119,7 +121,7 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-{
+        {
 
     // $errors = $validator->errors();
 

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Support\MessageProvider;
 
@@ -75,25 +76,29 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Category $category, Request $request)
+    public function update (Category $category, Request $request)
     {
+        echo $request->name;
 
-        //    dd($category->id);
+        // $category=Category::find($id);
 
         $request->validate([
             'name' => ['required', 'max:150', 'min:3', 'string'],
         ]);
 
+        //  dd($category);
 
         $category->name = $request->name;
 
 
         $category->update();
 
-        return redirect()->route('backoffice.categories')
-            ->with('success', 'Catégorie mis à jour');
-    }
+//  dd($category);
 
+return redirect() ->route('backoffice.categories')->with('success', 'Catégorie mise à jour');
+
+
+    }
 
     /**
      * Display the specified resource.

@@ -36,6 +36,7 @@ backoffice Du site @endsection
         <table class="w-full text-md bg-white shadow-md rounded mb-4">
             <tbody>
                 @foreach($products as $product)
+                
                 <tr class="border-b">
                     <th class="text-left p-3 px-5">ID</th>
                     <th class="text-left p-3 px-5">Name</th>

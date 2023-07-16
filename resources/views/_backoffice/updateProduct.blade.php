@@ -112,10 +112,15 @@ Modifier un produit @endsection
 
 
         <div class=" mb-6">
-            <select name="category_id" name="category_id" required>
-                <option value="1"> Mamifère</option>
-                <option value="2"> Insecte</option>
-            </select>
+            <select name="category_id" id="category_id" required>
+
+
+            @foreach ( $categories  as $category)
+
+            <option value="{{ $category->id }}"> <h2>{{  $category->name}} </h2></option>
+
+            @endforeach
+        </select>
         </div>
 
 
