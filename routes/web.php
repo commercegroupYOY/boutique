@@ -74,7 +74,7 @@ Route::get('/backoffice/category/{category}/edit/', [CategoryController::class, 
 
 
 
-Route::put('/backoffice/update/category', [CategoryController::class, 'update'])->name('category.update');
+Route::put('/backoffice/update/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/delet/la/{category}', [CategoryController::class, 'destroy'])->name('category.delete');
 
 

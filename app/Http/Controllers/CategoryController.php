@@ -76,28 +76,27 @@ class CategoryController extends Controller
     }
 
 
-    public function update (Category $category, Request $request)
+    public function update(Category $category, Request $request)
     {
-        echo $request->name;
+    //   dd ($request);
 
         // $category=Category::find($id);
 
-        $request->validate([
+        $test= $request->validate([
             'name' => ['required', 'max:150', 'min:3', 'string'],
         ]);
 
+       
         //  dd($category);
 
-        $category->name = $request->name;
+        // $category->name = $request->name;
 
 
-        $category->update();
+        $category->update($test);
 
-//  dd($category);
+        //  dd($category);
 
-return redirect() ->route('backoffice.categories')->with('success', 'Catégorie mise à jour');
-
-
+        return redirect()->route('backoffice.categories')->with('success', 'Catégorie mise à jour');
     }
 
     /**

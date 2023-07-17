@@ -41,8 +41,8 @@ class ProductController extends Controller
 
     public function edit(Product $product){
 
-
-        return view ('_backoffice/updateProduct', ['product' => $product]);
+        $categories=Category::all();
+        return view ('_backoffice/updateProduct', ['product' => $product],['categories'=>$categories]);
 
     }
 
