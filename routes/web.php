@@ -36,6 +36,8 @@ Route::get('/contact', [ContactController::class, 'contact']);
 Route::get('/', [HomeController::class, 'index'])->name('accueil');
 
 Route::get('/liste-des-produits', [ProductController::class, 'catalogue'])->name('products.index');
+Route::get('/product-list/category/{category}', [CategoryController::class, 'indexlist'])->name('catgory.list');
+
 
 Route::get('/details-produit/{id}', [ProductController::class, 'productSheet']);
 
@@ -51,9 +53,6 @@ Route::get('/productListPrice', [ProductController::class, 'productListPrice']);
 
 Route::get('/backoffice', [ProductController::class, 'index'])->name('backoffice');
 Route::get('/backoffice/categories', [CategoryController::class, 'index'])->name('backoffice.categories');
-
-
-
 
 
 
@@ -92,7 +91,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/greeting/{locale}', function (string $locale) {
     if (!in_array($locale, ['en', 'es', 'fr'])) {

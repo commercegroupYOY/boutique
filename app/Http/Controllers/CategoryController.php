@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Support\MessageProvider;
+use Illuminate\Http\RedirectResponse;
 
 
 
@@ -78,25 +79,16 @@ class CategoryController extends Controller
 
     public function update(Category $category, Request $request)
     {
-    //   dd ($request);
-
-        // $category=Category::find($id);
-
-        $test= $request->validate([
+     
+        $test = $request->validate([
             'name' => ['required', 'max:150', 'min:3', 'string'],
         ]);
 
-       
-        //  dd($category);
-
-        // $category->name = $request->name;
-
-
         $category->update($test);
 
-        //  dd($category);
-
-        return redirect()->route('backoffice.categories')->with('success', 'Catégorie mise à jour');
+        // return redirect()->route('backoffice.categories')->with('success', 'Catégorie mise à jour');
+        return redirect()->route('backoffice.categories'); 
+        // ->status();
     }
 
     /**
@@ -107,17 +99,10 @@ class CategoryController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(Categorie $categorie)
-    // {
-    //     //
-    // }
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    public function indexlist (Category $category)
+    {
+        dump($category->products);
+        dd($category->products());
+        return view('/productlistcategory', ['category' => $category]);
+    }
 }

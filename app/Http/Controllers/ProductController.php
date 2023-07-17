@@ -62,9 +62,12 @@ class ProductController extends Controller
     {
         // $products = DB::select('select * from products');        // requête simple
 
-        $products = DB::table('products')->get();                    //requête SQL queries
+        $products = DB::table('products')->get();            
+    
 
-        return View('product-list', ['products' => $products]);
+        $categories=Category::all();
+
+        return View('product-list',['categories'=>$categories], ['products' => $products]);
     }
 
     public function showIds($id): View

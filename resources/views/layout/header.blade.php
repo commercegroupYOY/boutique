@@ -139,20 +139,20 @@
                 <!-- Second dropdown menu items -->
                 <li>
                   <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                    href="{{route('dashboard')}}" data-te-dropdown-item-ref>login</a>
+                    href="{{route('dashboard')}}" data-te-dropdown-item-ref>Login</a>
                 </li>
                 <li>
                   <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
+                    href="{{route('register')}}" data-te-dropdown-item-ref>Register</a>
                 </li>
                 <li>
                   <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
+                    href="/logout" data-te-dropdown-item-ref>Logout</a>
                 </li>
-                <li>
+                {{-- <li>
                   <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                    href="{{route('register')}}" data-te-dropdown-item-ref>register</a>
-                </li>
+                    href="{{route('profile.update')}}" data-te-dropdown-item-ref>Profil</a> 
+                </li> --}}
 
               </ul>
             </div>
