@@ -1,58 +1,49 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form  method="POST" action="{{ route('login') }}">
-        @if(url()->previous() === route('panier.index'))
-          <div class="col s12">
-            <div class="card purple darken-3">
-              <div class="card-content white-text center-align">
-                Vous devez être connecté pour passer une commande, si vous n'avez pas encore de compte vous pouvez en créer un en utilisant le lien sous ce formulaire.
-              </div>
+@extends('layouts.layout')
+@section('content')
+<div class="container">
+  <div class="row">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+      <div class="card">
+        <form  method="POST" action="{{ route('login') }}">
+          <div class="card-content">
+            @csrf
+            <span class="card-title">Connexion</span>
+            <hr>
+            <x-input
+              name="email"
+              type="email"
+              icon="mail"
+              label="Adresse mail"
+              required="true"
+              autofocus="true"
+            ></x-input>
+            <x-input
+              name="password"
+              type="password"
+              icon="lock"
+              label="Mot de passe"
+              required="true"
+            ></x-input>
+            <div class="row col s12">
+              <label>
+                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <span>Se rappeler de moi</span>
+              </label>
             </div>
+            <p>
+              <button class="btn waves-effect waves-light" style="width:100%" type="submit" name="action">Connexion
+                <i class="material-icons right">lock_open</i>
+              </button>
+            </p>
+            <br>
           </div>
-        @endif
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+          <div class="card-action">
+            <p><a href="{{ route('password.request') }}">Mot de passe oublié ?</a></p>
+            <p><a href="{{ route('register') }}">Pas de compte ? Créez-en un</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

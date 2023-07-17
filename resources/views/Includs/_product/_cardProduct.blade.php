@@ -5,7 +5,7 @@
             <form action="{{ url('detailsProduit/' . $product->id) }}" method="">
                 <input type="hidden" name="id" for="id" value="{{ $product->id }}">
                 <button type="submit" class="btn btn-primary"> <img class="p-8 rounded-t-lg"
-                        src="/{{ $product->picture_url_yoy }}" alt="product image" /></button>
+                        src="/{{ $product->image }}" alt="product image" /></button>
             </form>
             <div class=" px-5 pb-5">
                 <h5 class="text-xl font-semibold tracking-tight text-gray-900">

@@ -1,76 +1,80 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.layout')
+@section('content')
+<div class="container">
+  <div class="row">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+      <div class="card">
+        <form  method="POST" action="{{ route('register') }}">
+          <div class="card-content">
+            @csrf
+            <span class="card-title">Créez votre compte</span>
+            <hr>
+            <x-input
+              name="firstname"
+              type="text"
+              icon="person"
+              label="Prénom"
+              required="true"
+            ></x-input>
+            <x-input
+              name="name"
+              type="text"
+              icon="person"
+              label="Nom"
+              required="true"
+            ></x-input>
+            <x-input
+              name="email"
+              type="email"
+              icon="mail"
+              label="Adresse mail"
+              required="true"
+            ></x-input>
+            <x-input
+              name="password"
+              type="password"
+              icon="lock"
+              label="Mot de passe"
+              required="true"
+            ></x-input>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="password-confirm" type="password" name="password_confirmation" required>
+                <label for="password-confirm">Confirmation du mot de passe</label>
+              </div>
+            </div>
+            <div class="row col s12">
+              <label>
+                <input type="checkbox" name="newsletter" id="newsletter" {{ old('newsletter') ? 'checked' : '' }}>
+                <span>Je désire recevoir votre lettre d'information</span>
+              </label>
+            </div>
+            <div class="row col s12">
+              <label>
+                <input type="checkbox" name="rgpd" id="rgpd" {{ old('rgpd') ? 'checked' : '' }}>
+                <span>J'accepte les termes et conditions de <a href="{{ route('page', 'politique-de-confidentialite') }}" target="_blank">la politique de confidentialité</a>.</span>
+              </label>
+            </div>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="adress" :value="__('Adress')" />
-            <x-text-input id="adress" class="block mt-1 w-full" type="adress" name="adress" :value="old('adress')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('adress')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="postalCode" :value="__('PostalCode')" />
-            <x-text-input id="postalCode" class="block mt-1 w-full" type="postalCode" name="postalCode" :value="old('postalCode')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('postalCode')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="city" :value="__('City')" />
-            <x-text-input id="city" class="block mt-1 w-full" type="city" name="city" :value="old('city')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('city')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="country" :value="__('country')" />
-            <x-text-input id="country" class="block mt-1 w-full" type="country" name="country" :value="old('country')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('country')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            <p>
+              <button class="btn waves-effect waves-light disabled" style="width: 100%" type="submit" name="action">
+                Enregistrer
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+@section('javascript')
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const rgpd = document.querySelector('#rgpd');
+      rgpd.checked = false;
+      rgpd.addEventListener('click', () => document.querySelector('button[type=submit]').classList.toggle('disabled'));
+    });
+  </script>
+@endsection

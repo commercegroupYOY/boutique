@@ -33,7 +33,7 @@ class CartController extends Controller
 
                 "price" => $product->price,
 
-                "image" => $product->picture_url_yoy
+                "image" => $product->image
 
             ];
 

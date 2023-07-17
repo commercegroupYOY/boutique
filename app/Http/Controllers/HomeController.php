@@ -12,10 +12,10 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $product = \DB::select('SELECT * from product WHERE sell = 1');
+        $products = \DB::select('SELECT * from products ');
 
 
-         return View('includs/_home/homepage', ['product' => $product]);
+         return View('includs/_home/homepage', ['products' => $products]);
 
     }
 }

@@ -8,8 +8,10 @@ use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+require __DIR__ . '/auth.php';
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,6 +26,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     // Commandes
     Route::prefix('commandes')->group(function () {
+        Route::name('commandes.details')->post('details', 'DetailsController');
         Route::resource('/', 'OrderController')->names([
             'create' => 'commandes.create',
             'store' => 'commandes.store',
@@ -33,9 +36,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('admin')->group(function () {
     Route::get('/backoffice', [BackOfficeController::class, 'index']);
+
 });
-// Route::get('/backoffice', [BackOfficeController::class, 'index']);
-require __DIR__ . '/auth.php';
 
 Route::get('/', function () {
     return view('homepage');
@@ -78,3 +80,9 @@ Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remo
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 route::get('/DetailsController', [App\Http\Controllers\DetailsController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

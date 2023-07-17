@@ -2,50 +2,54 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use Notifiable;
 
-    use HasApiTokens, HasFactory, Notifiable;
-
-    protected $user = 'users';
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'adress',
-        'postalCode',
-        'city',
-        'country',
+        'name', 'firstname', 'email', 'password', 'newsletter', 'last_seen',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be mutated to dates.
      *
-     * @var array<int, string>
+     * @var array
+     */
+    protected $dates = [
+        'last_seen',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

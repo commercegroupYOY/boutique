@@ -4,24 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateRangesTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('table_article_category', function (Blueprint $table) {
+        Schema::create('ranges', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->decimal('max');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('table_article_category');
+        Schema::dropIfExists('ranges');
     }
-};
+}

@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "postinstall": "node node_modules/datatables.net-editor/install.js ./Editor.zip"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",

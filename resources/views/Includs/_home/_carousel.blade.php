@@ -1,9 +1,10 @@
 <div id="carousel">
     <div class="relative  mx-auto p-20 ">
-        @foreach ($product as $products)
+        @foreach ($products as $product)
+
             <div class="slide relative">
-                <img class="w-full h-[720px] object-cover" src="{{ $products->picture_url_yoy }}">
-                <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white"> {{ $products->name }}
+                <img class="w-full h-[720px] object-cover" src="{{ $product->image }}">
+                <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white"> {{ $product->name }}
                 </div>
             </div>
         @endforeach
@@ -22,7 +23,7 @@
     <!-- The dots -->
     <div class="flex justify-center items-center space-x-5">
         @foreach ($product as $products)
-            <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="{{ $products->id }}"></div>
+            <div class="dot w-4 h-4 rounded-full cursor-pointer" onclick="{{ $product->id }}"></div>
         @endforeach
     </div>
 
