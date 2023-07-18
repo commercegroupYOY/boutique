@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\ProductController;
-use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\ProductController;
 
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-       return view ('/cart');
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,12 +28,41 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // dd($request);
+
+
+    $product=Product::find($request->product);
+
+    // dd($product);
+    // dd($request->quantity);
+
+    if ($product->stock < $request->quantity){
+        abort(404);
+    }
+    else{
+
+     $request->validate([
+    'quantity'=> ['required','min:1','integer'],
+   ]);
+
+
+    $cart= new Cart;
+    $cart->name = $product->name;
+    $cart->price = $product->price;
+    $cart->quantity = $request->quantity;
+
+    $cart->save();
+
+    return redirect('/liste-des-produits');
+
     }
 
     /**
      * Display the specified resource.
      */
+        }
+
     public function show(string $id)
     {
         //

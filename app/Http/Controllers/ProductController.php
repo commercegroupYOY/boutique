@@ -170,6 +170,17 @@ public function destroy (Product $product){
 }
 
 
+public function indexPanier(Product $product)
+
+{
+    // dd($id);
+    // $products=Product::find($id);
+    // dd($products);
+
+    return View('cart', ['product' => $product], );
+    }
+
+
 }
 
 

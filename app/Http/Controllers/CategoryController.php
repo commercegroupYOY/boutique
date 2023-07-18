@@ -101,8 +101,10 @@ class CategoryController extends Controller
 
     public function indexlist (Category $category)
     {
-        dump($category->products);
-        dd($category->products());
+        // dump($category->products);
+        // dd($category->products());
+
+     
         return view('/productlistcategory', ['category' => $category]);
     }
 }

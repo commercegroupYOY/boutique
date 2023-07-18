@@ -24,11 +24,19 @@
         <div class=" items-center justify-between">
             <span class=" text-3xl font-bold text-gray-900">{{$product->price}}</span>
 
+
             @if ($product->available==1)
-            <a href="#"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add
-                to cart</a>
+           
+            
+            <form method="post" action="{{ route('ajout.panier', ['product'=>$product->id])}}">
+            {{ csrf_field() }}
+            <button type="submit"
+            class="p-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            Ajouter au panier</button>
+            </form>
+
             @else
+            
             <a href="#"
                 class="text-white opacity-25 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Non disponinle
                 to cart</a>

@@ -41,7 +41,9 @@ Route::get('/product-list/category/{category}', [CategoryController::class, 'ind
 
 Route::get('/details-produit/{id}', [ProductController::class, 'productSheet']);
 
-Route::get('/Panier', [CartController::class, 'index']);
+// Route::get('/Panier', [CartController::class, 'index'])->name('panier');
+Route::post('/Panier/rempli/{product}', [ProductController::class, 'indexPanier'])->name('ajout.panier');
+Route::post('/Panier/remplirrrr/cretecart', [CartController::class, 'store'])->name('commande.panier');
 
 Route::get('/team', [Team::class, 'index']);
 

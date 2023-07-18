@@ -26,37 +26,6 @@ Liste des produits @endsection
     @endforeach
 </div> 
 
-{{-- Au pire ça ça marche  --}}
-
-{{-- <div class="mb-6">
-    <label for="name" class="block mb-2 text-sm font-medium text-blue-600">
-        Sélection de produits par catégorie
-    </label>
-
-    @foreach ($categories as $category)
-        <form method="get" action="{{ route('productlist.category', ['categoryname' => $category->name]) }}">
-            {{ csrf_field() }}
-            <select name="categoryname" required>
-                <option value="{{ $category->name }}">{{ $category->name }}</option>
-            </select>
-            <button type="submit">Valider</button>
-        </form>
-    @endforeach
-</div>  --}}
-
-
-
-
-    {{-- {{ dd($categories) }} --}}
-
-
-        {{-- @foreach ($categories->products as $product)
-
-            {{ $product->name }}
-        {{-- @include('_product._cardProduct') --}}
-
-        {{-- @endforeach --}}
-
 
 
 
