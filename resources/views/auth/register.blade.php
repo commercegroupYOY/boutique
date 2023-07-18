@@ -50,12 +50,12 @@
                 <span>Je désire recevoir votre lettre d'information</span>
               </label>
             </div>
-            <div class="row col s12">
+            {{-- <div class="row col s12">
               <label>
                 <input type="checkbox" name="rgpd" id="rgpd" {{ old('rgpd') ? 'checked' : '' }}>
                 <span>J'accepte les termes et conditions de <a href="{{ route('page', 'politique-de-confidentialite') }}" target="_blank">la politique de confidentialité</a>.</span>
               </label>
-            </div>
+            </div> --}}
 
             <p>
               <button class="btn waves-effect waves-light disabled" style="width: 100%" type="submit" name="action">

@@ -6,8 +6,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\BackOfficeController;
-use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -26,11 +27,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     // Commandes
     Route::prefix('commandes')->group(function () {
-        Route::name('commandes.details')->post('details', 'DetailsController');
-        Route::resource('/', 'OrderController')->names([
-            'create' => 'commandes.create',
-            'store' => 'commandes.store',
-        ])->only(['create', 'store']);
+        Route::name('commandes.details')->post('details', DetailsController::class, '__invoke');
+        Route::resource('commandes', OrderController::class);
+
     });
   });
 

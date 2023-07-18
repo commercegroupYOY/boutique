@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\Shipping;
 use App\Models\ { Address, Country };
@@ -13,12 +12,8 @@ class DetailsController extends Controller
     public function index()
 
     {
-        $email = request('email', 'name', 'adress', 'city', 'postalCode');
-        user::where('email', $email)->get();
-        $user = user::where('email', $email)->first();
 
-
-        return view('Includs._product.comandresume',  ['user' => $user]);
+        return view('Includs.command.comandresume');
     }
 
         /**
@@ -41,8 +36,8 @@ class DetailsController extends Controller
         $tax = $request->pick ? $tvaBase : $country_livraison->tax;
 
         // Panier
-        $content = Cart::getContent();
-        $total = $tax > 0 ? Cart::getTotal() : Cart::getTotal() / (1 + $tvaBase);
+        $content = 'cart'::getContent();
+        $total = $tax > 0 ?'cart'::getTotal() : 'cart'::getTotal() / (1 + $tvaBase);
         return response()->json([
             'view' => view('Includs.command.partials.detail', compact('shipping', 'content', 'total', 'tax'))->render(),
         ]);

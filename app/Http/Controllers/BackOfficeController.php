@@ -47,7 +47,7 @@ class BackOfficeController extends Controller
 
             'description' => 'required',
 
-            'quantity' => 'required',
+            'quantity' => ['required','gte:0'],
 
             'sell' => 'required',
 
@@ -103,7 +103,7 @@ class BackOfficeController extends Controller
 
             'description' => 'required',
 
-            'quantity' => 'required',
+            'quantity' => ['required','gte:0'],
 
             'sell' => 'required',
 

@@ -7,6 +7,10 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+//Materialize
+@import "materialize-css/materialize.scss";
+
 .cards-container {
     .card {
       display: inline-block;
