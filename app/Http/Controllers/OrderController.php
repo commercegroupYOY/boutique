@@ -36,6 +36,7 @@ class OrderController extends Controller
         $content = session()->get('cart');
 
         $total = ('cart')::getTotal();
+        
 
         $tax = Country::findOrFail($country_id)->tax;
 
