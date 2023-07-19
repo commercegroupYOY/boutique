@@ -11,7 +11,7 @@
 
 
 <div class="container">
-    <form id="form" action="{{ route('commandes.store') }}" method="POST">
+    <form id="form" action="{{ route('resume.store') }}" method="POST">
       @csrf
       @if(session()->has('message'))
         <h5 class="center-align red-text">{{ session('message') }}</h5>
@@ -134,7 +134,7 @@
       </ul>
       <div class="row">
         <div class="col s12">
-          <button id="commande" type="submit" class="btn disabled" style="width: 100%">Commande avec obligation de paiement</button>
+            <button type="submit" class="btn btn-success"><i class="fa fa-angle-left"></i>Commande avec obligation de paiement</button>
         </div>
       </div>
     </form>

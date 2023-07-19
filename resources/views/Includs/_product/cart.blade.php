@@ -92,7 +92,7 @@
 
                 <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
 
-                <a href="{{route('commandes.create')}}"><i class="fa fa-angle-left"></i>Commander</a>
+                <a href="{{route('resume.index')}}"><i class="fa fa-angle-left"></i>Commander</a>
 
 
             </td>

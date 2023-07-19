@@ -1,11 +1,12 @@
 <h5>Détails de ma commande</h5>
-@foreach ($content as $item)
+@foreach ($content as $product)
+
   <hr><br>
   <div class="row">
     <div class="col m6 s12">
-      {{ $item->name }} ({{ $item->quantity }} @if($item->quantity > 1) exemplaires) @else exemplaire) @endif
+      {{ $product['name'] }} ({{  $product['quantity'] }} @if( $product['quantity'] > 1) exemplaires) @else exemplaire) @endif
     </div>
-    <div class="col m6 s12"><strong>{{ number_format($item->total_price_gross ?? ($tax > 0 ? $item->price : $item->price / 1.2) * $item->quantity, 2, ',', ' ') }} €</strong></div>
+    <div class="col m6 s12"><strong>{{ number_format($product->total_price_gross ?? ($tax > 0 ? $product['price'] : $product['price'] / 1.2) *  $product['quantity'], 2, ',', ' ') }} €</strong></div>
   </div>
 @endforeach
 <hr><br>

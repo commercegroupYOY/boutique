@@ -36,8 +36,9 @@ class DetailsController extends Controller
         $tax = $request->pick ? $tvaBase : $country_livraison->tax;
 
         // Panier
-        $content = 'cart'::getContent();
-        $total = $tax > 0 ?'cart'::getTotal() : 'cart'::getTotal() / (1 + $tvaBase);
+
+        $content = session()->get('cart');
+        $total = $tax > 0 ?session('cart')::getTotal() : session('cart')::getTotal() / (1 + $tvaBase);
         return response()->json([
             'view' => view('Includs.command.partials.detail', compact('shipping', 'content', 'total', 'tax'))->render(),
         ]);

@@ -9,6 +9,7 @@ use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -22,16 +23,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::middleware('auth')->group(function () {
-    // Commandes
     Route::prefix('commandes')->group(function () {
         Route::name('commandes.details')->post('details', DetailsController::class, '__invoke');
-        Route::resource('commandes', OrderController::class);
-
+        Route::resource('resume', OrderController::class);
+        // Route::get('/confirmation/{id}', OrdersController::class, 'confirmation')->name('commandes.confirmation');
+        Route::name('commandes.confirmation')->get('confirmation/{order}', [OrdersControllers::class,'confirmation']);
     });
-  });
+});
+
+
 
 Route::middleware('admin')->group(function () {
     Route::get('/backoffice', [BackOfficeController::class, 'index']);
@@ -82,6 +82,6 @@ route::get('/DetailsController', [App\Http\Controllers\DetailsController::class,
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 

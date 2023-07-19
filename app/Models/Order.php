@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id', 'reference', 'total',
+        'user_id', 'reference', 'total', 'tax', 'state_id'
     ];
     public function getPaymentTextAttribute($value)
     {

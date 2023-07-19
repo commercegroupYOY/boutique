@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Address, Country, State, Product};
+use App\Models\{Address, Country, State, Product, Order};
 use App\Services\Shipping;
 use Illuminate\Support\Str;
+
 use Cart;
 
 class OrderController extends Controller
@@ -17,7 +18,7 @@ class OrderController extends Controller
      * @param  \App\Services\Shipping  $ship
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Shipping $ship)
+    public function index(Request $request, Shipping $ship)
     {
 
         $user = $request->user();
@@ -27,13 +28,14 @@ class OrderController extends Controller
             // Là il faudra renvoyer l'utilisateur sur son compte quand on l'aura créé
         }
 
+
         $country_id = $addresses->first()->country_id;
 
         $shipping = $ship->compute($country_id);
 
-        $content = 'cart'::getContent();
+        $content = session()->get('cart');
 
-        $total = 'cart'::getTotal();
+        $total = ('cart')::getTotal();
 
         $tax = Country::findOrFail($country_id)->tax;
 
@@ -50,14 +52,17 @@ class OrderController extends Controller
     public function store(Request $request, Shipping $ship)
     {
         // Vérification du stock
-        $items = 'cart'::getContent();
-        foreach ($items as $row) {
-            $product = Product::findOrFail($row->id);
-            if ($product->quantity < $row->quantity) {
-                $request->session()->flash('message', 'Nous sommes désolés mais le produit "' . $row->name . '" ne dispose pas d\'un stock suffisant pour satisfaire votre demande. Il ne nous reste plus que ' . $product->quantity . ' exemplaires disponibles.');
-                return back();
+        $items = session()->get('cart');
+
+        foreach ($items as $row)
+        {
+            $product = Product::findOrFail($row['idProduct']);
+            if ($product->quantity < $row['quantity'])
+            {
+                return view('Includs\command\comandresume')->with('message','Nous sommes désolés mais le produit "' . $row['name'] . '" ne dispose pas d\'un stock suffisant pour satisfaire votre demande. Il ne nous reste plus que ' . $product->quantity . ' exemplaires disponibles.');
             }
         }
+
 
         // Client
         $user = $request->user();
@@ -74,16 +79,19 @@ class OrderController extends Controller
         $tax = $request->expedition === 'colissimo' ? $address_livraison->country->tax : $tvaBase;
 
         // Enregistrement commande
-        $order = $user->orders()->create([
+        $order = Order::create([
             'reference' => strtoupper(Str::random(8)),
             'shipping' => $shipping,
-            'tax' => $tax,
-            'total' => $tax > 0 ? 'cart'::getTotal() : 'cart'::getTotal() / (1 + $tvaBase),
+            'tax' => (float)$tax,
+            'total' => $tax > 0 ? ('cart')::getTotal() : ('cart')::getTotal() / (1 + $tvaBase),
             'payment' => $request->payment,
             'pick' => $request->expedition === 'retrait',
             'state_id' => State::whereSlug($request->payment)->first()->id,
+            'user_id' => $user->id
         ]);
 
+        dump($order);
+        dd('toto');
         // Enregistrement adresse de facturation
         $order->adresses()->create($address_facturation->toArray());
 
@@ -97,27 +105,26 @@ class OrderController extends Controller
         foreach ($items as $row) {
             $order->products()->create(
                 [
-                    'name' => $row->name,
-                    'total_price_gross' => ($tax > 0 ? $row->price : $row->price / (1 + $tvaBase)) * $row->quantity,
+                    'name' => $row['name'],
+                    'total_price_gross' => ($tax > 0 ? $row['price'] : $row['price'] / (1 + $tvaBase)) * $row['quantity'],
                     'quantity' => $row->quantity,
                 ]
             );
             // Mise à jour du stock
-            $product = Product::findOrFail($row->id);
-            $product->quantity -= $row->quantity;
+            $product = Product::findOrFail($row['name']);
+            $product['quantity'] -= $row['quantity'];
             $product->save();
             // Alerte stock
-            if ($product->quantity <= $product->quantity_alert) {
+            if ($product['quantity'] <= $product['quantity_alert']) {
                 // Notifications à prévoir pour les administrateurs
             }
         }
 
         // On vide le panier
-        'cart'::clear();
-        'cart'::session($request->user())->clear();
+        session('cart')::clear();
+        session('cart')::session($request->user())->clear();
 
         // Notifications à prévoir pour les administrateurs et l'utilisateur
-
-        //return redirect(route('commandes.confirmation', $order->id));
+       return redirect()->route('commandes.confirmation',['id'=> $order->id]);
     }
 }
