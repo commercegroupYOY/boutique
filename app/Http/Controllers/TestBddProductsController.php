@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
-class TestBddProducts extends Controller
+class TestBddProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,14 @@ class TestBddProducts extends Controller
 
      public function index()
      {
-        $products = DB::table('products')->get();
-        $products = DB::select('select * from products');
-  
-        return view('/TestBDD', ['products' => $products]);
+
+        dd("hellocoucou");
+        $categories = Category::with('products')->get();
+        return view('/TestBDD', ['categories' => $categories]);
+
+        return view('/TestBddProducts');
+
+
      }
 
     

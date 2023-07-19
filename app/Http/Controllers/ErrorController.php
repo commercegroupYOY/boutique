@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class ErrorController extends Controller
 {
-   
 
-public function indexlist($id)
-{
-    $category = Category::find($id);
 
-    if (!$category) {
-        // Redirection permanente (301) vers une autre URL
-        return redirect()->route('fallback.route')->status(301);
+    public function indexlist($id)
+    {
+        $category = Category::findOrFail($id, 'Aucun résultat pour cette requête');
+
+
+        return back()->with('message', 'Erreur 404');
     }
-
-    // Redirection temporaire (303) vers une autre URL
-    return redirect()->route('fallback.route')->status(303);
-}
 }

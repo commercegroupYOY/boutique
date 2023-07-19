@@ -34,6 +34,7 @@ use App\Http\Controllers\BackofficeController;
 Route::get('/contact', [ContactController::class, 'contact']);
 
 Route::get('/', [HomeController::class, 'index'])->name('accueil');
+Route::get('/TestBddProducts', [TestBddProductsController::class, 'index']);
 
 Route::get('/liste-des-produits', [ProductController::class, 'catalogue'])->name('products.index');
 Route::get('/product-list/category/{category}', [CategoryController::class, 'indexlist'])->name('catgory.list');
@@ -47,7 +48,7 @@ Route::post('/Panier/remplirrrr/cretecart', [CartController::class, 'store'])->n
 
 Route::get('/team', [Team::class, 'index']);
 
-Route::get('/testBDD', [TestBddProducts::class, 'index']);
+
 
 
 Route::get('/productListName', [ProductController::class, 'productListName']);
