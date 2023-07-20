@@ -29,6 +29,7 @@
     <tbody>
 
         @php $total = 0 @endphp
+        
 
         @if(session('cart'))
 

@@ -10,7 +10,7 @@
     </li>
 
     <li id="detail" class="collection-item">
-      @include('command.partials.detail', [
+      @include('Includs.command.partials.detail', [
         'tax' => $order->tax,
         'shipping' => $order->shipping,
         'total' => $order->total,
@@ -38,14 +38,14 @@
       <div class="row">
         <div class="grid-example col s12 m6">
           <h5>Adresse de facturation @if($order->adresses->count() === 1) et de livraison @endif</h5>
-          @include('account.addresses.partials.address', [
+          @include('Includs.account.adresses.partials.adress', [
             'address' => $order->adresses->first(),
           ])
         </div>
         @if($order->adresses->count() > 1)
           <div class="grid-example col s12 m6">
             <h5>Adresse de livraison</h5>
-            @include('account.addresses.partials.address', [
+            @include('Includs.account.adresses.partials.adress', [
               'address' => $order->adresses->last(),
             ])
           </div>

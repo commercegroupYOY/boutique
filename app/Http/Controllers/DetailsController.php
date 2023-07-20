@@ -32,7 +32,7 @@ class DetailsController extends Controller
         $country_livraison = $request->different ? Address::findOrFail($request->livraison)->country : $country_facturation;
         $shipping = $request->pick ? 0 : $ship->compute($country_livraison->id);
         // TVA
-        $tvaBase = Country::whereName('France')->first()->tax;
+        $tvaBase = 0.20;
         $tax = $request->pick ? $tvaBase : $country_livraison->tax;
 
         // Panier

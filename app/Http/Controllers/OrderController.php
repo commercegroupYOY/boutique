@@ -36,7 +36,7 @@ class OrderController extends Controller
         $content = session()->get('cart');
 
         $total = ('cart')::getTotal();
-        
+
 
         $tax = Country::findOrFail($country_id)->tax;
 
@@ -60,7 +60,7 @@ class OrderController extends Controller
             $product = Product::findOrFail($row['idProduct']);
             if ($product->quantity < $row['quantity'])
             {
-                return view('Includs\command\comandresume')->with('message','Nous sommes désolés mais le produit "' . $row['name'] . '" ne dispose pas d\'un stock suffisant pour satisfaire votre demande. Il ne nous reste plus que ' . $product->quantity . ' exemplaires disponibles.');
+                return view('Includs._product.cart')->with('message','Nous sommes désolés mais le produit "' . $row['name'] . '" ne dispose pas d\'un stock suffisant pour satisfaire votre demande. Il ne nous reste plus que ' . $product->quantity . ' exemplaires disponibles.');
             }
         }
 
@@ -91,8 +91,7 @@ class OrderController extends Controller
             'user_id' => $user->id
         ]);
 
-        dump($order);
-        dd('toto');
+
         // Enregistrement adresse de facturation
         $order->adresses()->create($address_facturation->toArray());
 
@@ -108,11 +107,11 @@ class OrderController extends Controller
                 [
                     'name' => $row['name'],
                     'total_price_gross' => ($tax > 0 ? $row['price'] : $row['price'] / (1 + $tvaBase)) * $row['quantity'],
-                    'quantity' => $row->quantity,
+                    'quantity' => $row['quantity'],
                 ]
             );
             // Mise à jour du stock
-            $product = Product::findOrFail($row['name']);
+            $product = Product::findOrFail($row['idProduct']);
             $product['quantity'] -= $row['quantity'];
             $product->save();
             // Alerte stock
@@ -122,10 +121,9 @@ class OrderController extends Controller
         }
 
         // On vide le panier
-        session('cart')::clear();
-        session('cart')::session($request->user())->clear();
+        session()->forget('cart');
 
         // Notifications à prévoir pour les administrateurs et l'utilisateur
-       return redirect()->route('commandes.confirmation',['id'=> $order->id]);
+       return redirect()->route('commandes.confirmation',['order'=> $order->id]);
     }
 }

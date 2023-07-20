@@ -26,8 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('commandes')->group(function () {
         Route::name('commandes.details')->post('details', DetailsController::class, '__invoke');
         Route::resource('resume', OrderController::class);
-        // Route::get('/confirmation/{id}', OrdersController::class, 'confirmation')->name('commandes.confirmation');
-        Route::name('commandes.confirmation')->get('confirmation/{order}', [OrdersControllers::class,'confirmation']);
+        Route::get('confirmation/{order}', [OrdersController::class,'confirmation'])->name('commandes.confirmation');
     });
 });
 
@@ -82,6 +81,6 @@ route::get('/DetailsController', [App\Http\Controllers\DetailsController::class,
 
 Auth::routes();
 
-
-
-
+Route::fallback(function() {
+    return view('404'); // la vue 404.blade.php
+ });

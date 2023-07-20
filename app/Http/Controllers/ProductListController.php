@@ -17,8 +17,14 @@ class ProductListController extends Controller
     public function productSheet($id)
     {
         $product = Products::find($id);
+        if(isset($product->id))
+        {
         return view('Includs/_product/productDetail', ['product' => $product]);
-    }
+        }else{
+            return response()->json(['message' => 'Not Found!'], 404);
+            };
+        }
+    
 
     public function productListCat($categoryName)
     {
